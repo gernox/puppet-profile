@@ -44,7 +44,7 @@ jobs:
       stage: spec
 branches:
   only:
-    - master
+    - production
     - /^v\d/
 notifications:
   email: false
