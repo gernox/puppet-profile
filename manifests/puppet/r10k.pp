@@ -3,17 +3,18 @@ class profile::puppet::r10k (
   class { 'r10k':
     sources => {
       'control' => {
-        'remote'  => 'ssh://git@github.com:gernox/puppet-control.git',
-        'basedir' => "${::settings::confdir}/environments",
+        'remote'  => 'https://github.com/gernox/puppet-control.git',
+        'basedir' => "${::settings::codedir}/environments",
         'prefix'  => false,
       },
     },
   }
 
   class { 'r10k::webhook::config':
-    default_branch  => 'master',
-    enable_ssl      => true,
-    protected       => true,
+    default_branch  => 'production',
+    enable_ssl      => false,
+    protected       => false,
+    github_secret   => 'THISISTHEGITHUBWEBHOOKSECRET',
     use_mcollective => false,
     notify          => Service['webhook'],
   }
