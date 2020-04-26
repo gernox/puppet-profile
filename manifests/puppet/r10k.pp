@@ -1,9 +1,12 @@
 class profile::puppet::r10k (
+  String $default_branch,
+  String $github_secret,
+  String $control_repo,
 ) {
   class { 'r10k':
     sources => {
       'control' => {
-        'remote'  => 'https://github.com/gernox/puppet-control.git',
+        'remote'  => $control_repo,
         'basedir' => "${::settings::codedir}/environments",
         'prefix'  => false,
       },
@@ -11,10 +14,10 @@ class profile::puppet::r10k (
   }
 
   class { 'r10k::webhook::config':
-    default_branch  => 'production',
+    default_branch  => $default_branch,
     enable_ssl      => false,
     protected       => false,
-    github_secret   => 'THISISTHEGITHUBWEBHOOKSECRET',
+    github_secret   => $github_secret,
     use_mcollective => false,
     notify          => Service['webhook'],
   }

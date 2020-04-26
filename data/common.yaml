@@ -1,4 +1,5 @@
 ---
+profile::puppet::r10k::default_branch: production
 
 profile::puppet::puppetdb::node_ttl: 7d
 profile::puppet::puppetdb::node_purge_ttl: 7d
