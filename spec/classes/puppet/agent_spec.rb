@@ -9,6 +9,9 @@ describe 'profile::puppet::agent', type: :class do
 
       context 'compile' do
         it { is_expected.to contain_class('puppet_agent') }
+        it { is_expected.to contain_file('/etc/apt/sources.list.d/puppet6.list').with(
+          ensure: 'absent'
+        ) }
         it { is_expected.to compile.with_all_deps }
       end
     end
