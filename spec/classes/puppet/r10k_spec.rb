@@ -9,9 +9,9 @@ describe 'profile::puppet::r10k', type: :class do
 
       let(:params) do
         {
-            :github_secret => 'secret',
-            :control_repo => 'https://example.com',
-            :default_branch => 'develop',
+          github_secret: 'secret',
+          control_repo: 'https://example.com',
+          default_branch: 'develop',
         }
       end
 
@@ -19,8 +19,8 @@ describe 'profile::puppet::r10k', type: :class do
         it { is_expected.to contain_class('r10k') }
         it {
           is_expected.to contain_class('r10k::webhook::config').with(
-              :default_branch => 'develop',
-              :github_secret => 'secret',
+            default_branch: 'develop',
+            github_secret: 'secret',
           )
         }
         it { is_expected.to contain_class('r10k::webhook') }

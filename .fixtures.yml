@@ -22,6 +22,9 @@ fixtures:
     git:
       repo: 'https://github.com/puppetlabs/puppetlabs-git.git'
       ref: '0.5.0'
+    hiera:
+      repo: 'https://github.com/voxpupuli/puppet-hiera.git'
+      ref: 'v4.0.0'
     inifile:
       repo: 'https://github.com/puppetlabs/puppetlabs-inifile.git'
       ref: 'v4.1.0'
@@ -37,6 +40,9 @@ fixtures:
     puppetdb:
       repo: 'https://github.com/puppetlabs/puppetlabs-puppetdb.git'
       ref: '7.4.0'
+    puppetserver_gem:
+      repo: 'https://github.com/puppetlabs/puppetlabs-puppetserver_gem.git'
+      ref: '1.1.1'
     ruby:
       repo: 'https://github.com/puppetlabs/puppetlabs-ruby.git'
       ref: 'v1.0.1'
