@@ -2,6 +2,8 @@
 profile::puppet::agent::puppet_collection: puppet6
 profile::puppet::agent::puppet_version: auto
 
+profile::puppet::master::purge_report_days: 30
+
 profile::puppet::r10k::default_branch: production
 
 profile::puppet::puppetdb::node_ttl: 7d
