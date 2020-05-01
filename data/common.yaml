@@ -1,4 +1,18 @@
 ---
+profile::apt::unattended_upgrades::manage_package: true
+profile::apt::unattended_upgrades::package_name: unattended-upgrades
+profile::apt::unattended_upgrades::email: root
+profile::apt::unattended_upgrades::autofix: true
+profile::apt::unattended_upgrades::minimal_steps: true
+profile::apt::unattended_upgrades::on_shutdown: false
+profile::apt::unattended_upgrades::on_error: true
+profile::apt::unattended_upgrades::auto_remove: false
+profile::apt::unattended_upgrades::auto_reboot: false
+profile::apt::unattended_upgrades::reboot_time: '02:00'
+profile::apt::unattended_upgrades::automation_file: /etc/apt/apt.conf.d/20auto-upgrades
+profile::apt::unattended_upgrades::configuration_file: /etc/apt/apt.conf.d/50unattended-upgrades
+profile::apt::unattended_upgrades::repositories: []
+
 profile::firewall::forward_policy: 'drop'
 profile::firewall::ignore_rules:
   - '-m (?i:physdev)'

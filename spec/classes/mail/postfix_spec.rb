@@ -9,7 +9,7 @@ describe 'profile::mail::postfix', type: :class do
 
       let(:params) do
         {
-          root_recipient: 'root@localhost'
+          root_recipient: 'root@localhost',
         }
       end
 
@@ -20,11 +20,11 @@ describe 'profile::mail::postfix', type: :class do
 
       context 'using a relay server' do
         let(:params) do
-          super().merge({
+          super().merge(
             relay_host: '127.0.0.1',
             relay_username: 'username',
             relay_password: 'password',
-          })
+          )
         end
 
         context 'compile' do
