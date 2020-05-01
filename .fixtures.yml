@@ -73,5 +73,8 @@ fixtures:
     vcsrepo:
       repo: 'https://github.com/puppetlabs/puppetlabs-vcsrepo.git'
       ref: 'v3.1.0'
+    vim:
+      repo: 'https://github.com/saz/puppet-vim'
+      ref: 'v2.7.0'
   symlinks:
     profile: "#{source_dir}"

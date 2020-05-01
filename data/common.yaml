@@ -25,6 +25,12 @@ profile::dns::resolver::resolver_config_file_owner: root
 profile::dns::resolver::resolver_config_file_group: root
 profile::dns::resolver::resolver_config_file_mode: '0644'
 
+profile::editors::vim::theme_url: https://github.com/altercation/vim-colors-solarized.git
+profile::editors::vim::theme_revision: 528a59f26d12278698bb946f8fb82a63711eec21
+profile::editors::vim::pathogen_url: https://github.com/tpope/vim-pathogen.git
+profile::editors::vim::pathogen_revision: c6bc42404597c718e4a032a98e21e63321cbb05a
+
+
 profile::firewall::forward_policy: 'drop'
 profile::firewall::ignore_rules:
   - '-m (?i:physdev)'

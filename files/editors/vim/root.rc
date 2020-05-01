@@ -1,0 +1,62 @@
+" Warning: File managed by Puppet
+" ====================================================
+" Path:          files/editorsvim/root.rc
+" Last Modified: Tue, 14.06.2020 - 18:03:42
+"
+set nocompatible
+execute pathogen#infect()
+
+" --- [ Display Options
+" Show which mode we are in
+set showmode
+
+" Set a satutusline at the bottom
+set statusline=[%n]\ [%F]\ %w%y%r%m[%{&fileformat}][%{&fileencoding}]\ %=\ %{hostname()}\ %l/%L,%-5c\ %P
+
+" Line and column number we are in
+set ruler
+
+" Print line number
+set number
+
+" Print this symbol on line breaks
+set showbreak=>>
+
+" Mouse interaction in all modes
+set mouse=a
+set pastetoggle=<F3>
+
+" Show matching bracket
+set showmatch
+
+" Syntax highlight
+syntax on
+" Solarized colorscheme
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+" Scroll before terminal ends
+set scrolloff=5
+
+" --- [ Encoding
+set encoding=utf-8
+set bs=2
+
+" --- [ Searching
+set ignorecase
+set incsearch
+set smartcase
+set hlsearch
+
+" --- [ Editing
+" ------ [ Tabs
+set expandtab                   " Expand tabs to spaces
+set softtabstop=2
+set shiftwidth=2
+set autoindent                  " Indent newline automatically
+set smartindent                 " Indent after eg. a brace
+
+" --- [ Plugins
+" ------ [ Pathogen
+filetype plugin indent on
