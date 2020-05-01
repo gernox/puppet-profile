@@ -1,4 +1,22 @@
 ---
+profile::firewall::forward_policy: 'drop'
+profile::firewall::ignore_rules:
+  - '-m (?i:physdev)'
+  - '-j DOCKER'
+  - '-j DOCKER-ISOLATION'
+  - '-j DOCKER-ISOLATION-.*'
+  - '-j DOCKER-INGRESS'
+  - '-j DOCKER-USER'
+  - '-j MASQUERADE'
+  - '-o docker0'
+  - '-i docker0'
+  - '-o docker_gwbridge'
+  - '-i docker_gwbridge'
+  - '-o br-.*'
+  - '-i br-.*'
+
+profile::firewall::psad::notification_mail: 'root@localhost'
+
 profile::puppet::agent::puppet_collection: puppet6
 profile::puppet::agent::puppet_version: auto
 
@@ -11,3 +29,12 @@ profile::puppet::puppetdb::node_purge_ttl: 7d
 profile::puppet::puppetdb::report_ttl: 7d
 profile::puppet::puppetdb::max_mem: 512m
 profile::puppet::puppetdb::initial_mem: 256m
+
+lookup_options:
+  profile::firewall::system_rules:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::firewall::psad::auto_dl:
+    merge:
+      strategy: unique
