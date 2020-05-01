@@ -13,6 +13,18 @@ profile::apt::unattended_upgrades::automation_file: /etc/apt/apt.conf.d/20auto-u
 profile::apt::unattended_upgrades::configuration_file: /etc/apt/apt.conf.d/50unattended-upgrades
 profile::apt::unattended_upgrades::repositories: []
 
+profile::dns::resolver::nameservers:
+  - '8.8.8.8'
+  - '8.8.4.4'
+profile::dns::resolver::options:
+  - 'rotate'
+  - 'timeout:1'
+profile::dns::resolver::resolver_config_file: /etc/resolv.conf
+profile::dns::resolver::resolver_config_file_ensure: file
+profile::dns::resolver::resolver_config_file_owner: root
+profile::dns::resolver::resolver_config_file_group: root
+profile::dns::resolver::resolver_config_file_mode: '0644'
+
 profile::firewall::forward_policy: 'drop'
 profile::firewall::ignore_rules:
   - '-m (?i:physdev)'
