@@ -3,9 +3,18 @@
 ---
 fixtures:
   repositories:
+    alternative:
+      repo: 'https://github.com/voxpupuli/puppet-alternatives.git'
+      ref: 'v3.0.0'
     apt:
       repo: 'https://github.com/puppetlabs/puppetlabs-apt.git'
       ref: 'v7.4.1'
+    augeas:
+      repo: 'https://github.com/camptocamp/puppet-augeas.git'
+      ref: '1.9.0'
+    augeas_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-augeas_core.git'
+      ref: '1.0.5'
     concat:
       repo: 'https://github.com/puppetlabs/puppetlabs-concat.git'
       ref: 'v6.2.0'
@@ -28,6 +37,12 @@ fixtures:
     inifile:
       repo: 'https://github.com/puppetlabs/puppetlabs-inifile.git'
       ref: 'v4.1.0'
+    mailalias_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
+      ref: '1.0.6'
+    postfix:
+      repo: 'https://github.com/camptocamp/puppet-postfix.git'
+      ref: '1.10.0'
     postgresql:
       repo: 'https://github.com/puppetlabs/puppetlabs-postgresql.git'
       ref: 'v6.4.0'
