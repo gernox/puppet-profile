@@ -6,5 +6,6 @@ class profile::base {
   contain profile::dns::resolver
   contain profile::editors::vim
   contain profile::firewall
+  contain profile::hardening
   contain profile::mail::postfix
 }
