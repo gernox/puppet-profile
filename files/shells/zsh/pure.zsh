@@ -1,5 +1,7 @@
 # This file is managed by Puppet; All changes will be undone
 
+fpath+=$HOME/.oh-my-zsh/custom/pure
+
 autoload -U promptinit; promptinit
 
 # optionally define some options
