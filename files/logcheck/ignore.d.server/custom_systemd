@@ -1,0 +1,19 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: Start(ing|ed) Cleanup of Temporary Directories\.+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-logind\[[[:digit:]]+\]: New session [[:digit:]]+ of user nagios-ssh\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-logind\[[[:digit:]]+\]: Removed session [[:digit:]]+\.$
+^\w{3} [ :[:digit:] ]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: (Reloading|Reexecuting)\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: (Stopping|Stopped|Starting|Started) .*$
+^\w{3} [ :[:digit:] ]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: \[.*docker.service.*\] Unknown lvalue 'Delegate' in section 'Service'
+^\w{3} [ :[:digit:] ]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]:.+is marked world-inaccessible.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd.+ Reload.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd.+ Supervising process.+
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[[0-9]+\]: .*timer: Adding.*
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-resolved\[[[:digit:]]+\]: (Negative|Positive) (T|t)rust (A|a)nchors:.*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-resolved\[[[:digit:]]+\]: \. IN DS .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-resolved\[[[:digit:]]+\]: Using system hostname '[[:alnum:]]+'\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: proc-sys-fs-binfmt_misc\.automount: Got automount request for \/proc\/sys\/fs\/binfmt_misc, triggered by [[:digit:]]+ \(check_disk\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd\[[[:digit:]]+\]: (Mounting|Mounted) Arbitrary Executable File Formats File System\.\.\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-networkd\[[[:digit:]]+\]: [[:alnum:]]+: (Gained IPv6LL|Configured)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-networkd\[[[:digit:]]+\]: Enumeration completed$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-networkd\[[[:digit:]]+\]: (lo|infra): Link is not managed by us$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ systemd-networkd-wait-online\[[[:digit:]]+\]: (ignoring|managing): [[:alnum:]]+$

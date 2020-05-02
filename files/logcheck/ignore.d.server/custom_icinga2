@@ -1,0 +1,6 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ icinga2\[[0-9]+\]: \[[+ :[:alnum:]-]{25}\] information\/(Dynamic|Config)Object: Dumping program state to file '\/var\/lib\/icinga2\/icinga2\.state'$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ icinga2\[[0-9]+\]: \[[+ :[:alnum:]-]{25}\] information\/IdoMysqlConnection: Query queue items: [[:alnum:]]+, query rate:[ ]+[.[:alnum:]]+\/s \([[:alnum:]]+\/min [[:alnum:]]+\/5min [[:alnum:]]+\/15min\);$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ icinga2\[[0-9]+\]: \[[+ :[:alnum:]-]{25}\] information\/.*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ icinga2\[[0-9]+\]: .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ safe-reload\[[0-9]+\]: Validating config files: Done$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ safe-reload\[[0-9]+\]: Reloading Icinga 2: Done$

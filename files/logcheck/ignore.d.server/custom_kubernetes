@@ -1,0 +1,15 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[[:digit:].]+\] xt_physdev: using --physdev-out and --physdev-is-out are only supported in the FORWARD and POSTROUTING chains with bridged traffic\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: store\.index: compact [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: finished scheduled compaction at [[:digit:]]+ \(took [[:alnum:].]+\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: sync duration of [[:alnum:].]+, expected less than [[:alnum:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: segmented wal file \/var\/lib\/etcd\/member\/wal\/[[:alnum:]]+-[[:alnum:]]+\.wal is created$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: start to snapshot \(applied: [[:digit:]]+, lastsnap: [[:digit:]]\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: saved snapshot at index [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: compacted raft log at [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: [[:alnum:]]+ \[term: [[:digit:]]+\] received a MsgVote message with higher term from [[:alnum:]]+ \[term: [[:digit:]]+\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: [[:alnum:]]+ became follower at term [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: [[:alnum:]]+ \[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\] cast MsgVote for [[:alnum:]]+ \[logterm: [[:digit:]]+, index: [[:digit:]]+\] at term [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: raft\.node: [[:alnum:]]+ lost leader [[:alnum:]]+ at term [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: raft\.node: [[:alnum:]]+ elected leader [[:alnum:]]+ at term [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: read-only range request .+ took too long \([[:alnum:].]+\) to execute$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ etcd\[[[:digit:]]+\]: request ".+" with result ".+" took too long \([[:alnum:].]+\) to execute$

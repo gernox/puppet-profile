@@ -1,0 +1,20 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] perf interrupt took too long \([0-9]+ > [0-9]+\), lowering kernel\.perf_event_max_sample_rate to [0-9]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] INFO: NMI handler \(perf_event_nmi_handler\) took too long to run: .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] device-mapper: uevent: version [.[:alnum:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] device-mapper: ioctl: [.[:alnum:]]+-ioctl \([[:alnum:]-]+\) initialised: dm-devel@redhat\.com$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] ip_tables: \(C\) 2000-2006 Netfilter Core Team$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] aufs .+: dirperm1 breaks the protection by the permission bits on the lower branch$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] device [[:alnum:]]+ (left|entered) promiscuous mode$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] IPv6: ADDRCONF\(NETDEV_UP\): [[:alnum:]]+: link is not ready$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] IPv6: ADDRCONF\(NETDEV_CHANGE\): [[:alnum:]]+: link becomes ready$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] [-[:alnum:]]+: port [\(\)[:alnum:]]+ entered (disabled|forwarding) state$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] sysctl_ibrs_enabled = 0, sysctl_ibpb_enabled = 0$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] use_ibrs = 4, use_ibpb = 4$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] read cpu [[:digit:]]+ ibrs val 0$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] libceph: [[:alnum:]]+ [[:alnum:].:]+ socket closed \(con state [[:alnum:]]+\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] IPTables-Dropped:.*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] iptables: .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] hrtimer: interrupt took [[:digit:]]+ ns$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] systemd: [[:digit:]]+ output lines suppressed due to ratelimiting$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] perf: interrupt took too long \([[:digit:]]+ > [[:digit:]]+\), lowering kernel\.perf_event_max_sample_rate to [[:digit:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] conntrack: generic helper won't handle protocol 47\. Please consider loading the specific helper module\.$

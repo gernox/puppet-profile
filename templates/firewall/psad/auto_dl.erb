@@ -1,0 +1,14 @@
+# This file is managed by Puppet
+#
+# Used by psad to elevate/decrease the danger levels of IP
+# <IP address>  <danger level>  <optional protocol>/<optional ports>;
+#
+# Examples:
+#  10.111.21.23 5; # Very bad IP.
+#  127.0.0.1    0; # Ignore this IP.
+#  192.168.10.4 3 tcp; # Assign danger level 3 if protocol is tcp.
+#  10.10.1.0/24 3 tcp/1-1024; # Danger level 3 for tcp port range
+
+<% @auto_dl.each do |entry| -%>
+<%= entry %>
+<% end -%>

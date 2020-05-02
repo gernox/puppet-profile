@@ -1,7 +1,139 @@
 ---
+profile::apt::unattended_upgrades::manage_package: true
+profile::apt::unattended_upgrades::package_name: unattended-upgrades
+profile::apt::unattended_upgrades::email: root
+profile::apt::unattended_upgrades::autofix: true
+profile::apt::unattended_upgrades::minimal_steps: true
+profile::apt::unattended_upgrades::on_shutdown: false
+profile::apt::unattended_upgrades::on_error: true
+profile::apt::unattended_upgrades::auto_remove: false
+profile::apt::unattended_upgrades::auto_reboot: false
+profile::apt::unattended_upgrades::reboot_time: '02:00'
+profile::apt::unattended_upgrades::automation_file: /etc/apt/apt.conf.d/20auto-upgrades
+profile::apt::unattended_upgrades::configuration_file: /etc/apt/apt.conf.d/50unattended-upgrades
+profile::apt::unattended_upgrades::repositories: []
+
+profile::dns::resolver::nameservers:
+  - '8.8.8.8'
+  - '8.8.4.4'
+profile::dns::resolver::options:
+  - 'rotate'
+  - 'timeout:1'
+profile::dns::resolver::resolver_config_file: /etc/resolv.conf
+profile::dns::resolver::resolver_config_file_ensure: file
+profile::dns::resolver::resolver_config_file_owner: root
+profile::dns::resolver::resolver_config_file_group: root
+profile::dns::resolver::resolver_config_file_mode: '0644'
+
+profile::editors::vim::theme_url: https://github.com/altercation/vim-colors-solarized.git
+profile::editors::vim::theme_revision: 528a59f26d12278698bb946f8fb82a63711eec21
+profile::editors::vim::pathogen_url: https://github.com/tpope/vim-pathogen.git
+profile::editors::vim::pathogen_revision: c6bc42404597c718e4a032a98e21e63321cbb05a
+
+
+profile::firewall::forward_policy: 'drop'
+profile::firewall::ignore_rules:
+  - '-m (?i:physdev)'
+  - '-j DOCKER'
+  - '-j DOCKER-ISOLATION'
+  - '-j DOCKER-ISOLATION-.*'
+  - '-j DOCKER-INGRESS'
+  - '-j DOCKER-USER'
+  - '-j MASQUERADE'
+  - '-j f2b-.*'
+  - '-o docker0'
+  - '-i docker0'
+  - '-o docker_gwbridge'
+  - '-i docker_gwbridge'
+  - '-o br-.*'
+  - '-i br-.*'
+profile::firewall::psad::notification_mail: 'root@localhost'
+
+profile::hosts::hosts:
+  localhost:
+    ip: 127.0.0.1
+  ip6-localhost:
+    ip: '::1'
+    host_aliases: ip6-loopback
+  ip6-localnet:
+    ip: 'fe00::0'
+  ip6-mcastprefix:
+    ip: 'ff00::0'
+  ip6-allnodes:
+    ip: 'ff02::1'
+  ip6-allrouters:
+    ip: 'ff02::2'
+  ip6-allhosts:
+    ip: 'ff02::3'
+
+profile::kernel_modules::blacklist:
+  floppy:
+    ensure: present
+
+profile::mail::postfix::myorigin: '%{facts.fqdn}'
+profile::mail::postfix::mydestination: '%{facts.hostname} localhost.%{facts.domain} %{facts.fqdn}'
+profile::mail::postfix::mynetworks: '127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128'
+profile::mail::postfix::smtp_listen: 127.0.0.1
+
+profile::ntp::servers:
+  - 0.de.pool.ntp.org
+  - 1.de.pool.ntp.org
+  - 2.de.pool.ntp.org
+  - 3.de.pool.ntp.org
+profile::ntp::restrictions:
+  - 'default kod nomodify notrap nopeer noquery'
+  - '-6 default kod nomodify notrap nopeer noquery'
+  - '127.0.0.1'
+  - '-6 ::1'
+
+profile::packages::packages:
+  software-properties-common: {}
+  apt-transport-https: {}
+  linux-headers-generic: {}
+  postgresql-client: {}
+
+profile::puppet::agent::puppet_collection: puppet6
+profile::puppet::agent::puppet_version: auto
+
+profile::puppet::master::purge_report_days: 30
+
+profile::puppet::r10k::default_branch: production
 
 profile::puppet::puppetdb::node_ttl: 7d
 profile::puppet::puppetdb::node_purge_ttl: 7d
 profile::puppet::puppetdb::report_ttl: 7d
 profile::puppet::puppetdb::max_mem: 512m
 profile::puppet::puppetdb::initial_mem: 256m
+
+profile::ssh::server::server_name: '%{facts.fqdn}'
+profile::ssh::server::description: 'Change me in hiera "profile::ssh::server::description"'
+profile::ssh::server::motd_template: 'profile/ssh/server/motd.erb'
+profile::ssh::server::authorized_keys: {}
+profile::ssh::client::ssh_options: {}
+
+profile::wireguard::interfaces: {}
+
+lookup_options:
+  profile::hosts::hosts:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::firewall::system_rules:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::firewall::psad::auto_dl:
+    merge:
+      strategy: unique
+  profile::hardening::sysctl::entries:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::kernel_modules::blacklist:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::ssh::server::authorized_keys:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true

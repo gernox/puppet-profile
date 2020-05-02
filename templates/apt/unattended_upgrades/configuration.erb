@@ -1,0 +1,69 @@
+// Warning: This file is managed by Puppet; DO NOT EDIT
+// ====================================================
+// Path:          templates/unattended_upgrades/configuration.erb
+//
+
+// Automatically upgrade packages from these (origin:archive) pairs
+Unattended-Upgrade::Allowed-Origins {
+	"${distro_id}:${distro_codename}";
+	"${distro_id}:${distro_codename}-security";
+	// Extended Security Maintenance; doesn't necessarily exist for
+	// every release and this system may not have it installed, but if
+	// available, the policy for updates is such that unattended-upgrades
+	// should also install from here by default.
+	"${distro_id}ESM:${distro_codename}";
+//	"${distro_id}:${distro_codename}-updates";
+//	"${distro_id}:${distro_codename}-proposed";
+//	"${distro_id}:${distro_codename}-backports";
+};
+
+Unattended-Upgrade::Origins-Pattern {
+        // Custom Configuration
+        <% @repositories.each do |repo| -%>
+            "<%= repo %>";
+        <% end %>
+};
+
+// This option allows you to control if on a unclean dpkg exit
+// unattended-upgrades will automatically run
+//   dpkg --force-confold --configure -a
+// The default is true, to ensure updates keep getting installed
+Unattended-Upgrade::AutoFixInterruptedDpkg "<%= @autofix %>";
+
+// Split the upgrade into the smallest possible chunks so that
+// they can be interrupted with SIGUSR1. This makes the upgrade
+// a bit slower but it has the benefit that shutdown while a upgrade
+// is running is possible (with a small delay)
+Unattended-Upgrade::MinimalSteps "<%= @minimal_steps %>";
+
+// Install all unattended-upgrades when the machine is shuting down
+// instead of doing it in the background while the machine is running
+// This will (obviously) make shutdown slower
+Unattended-Upgrade::InstallOnShutdown "<%= @on_shutdown %>";
+
+// Send email to this address for problems or packages upgrades
+// If empty or unset then no email is sent, make sure that you
+// have a working mail setup on your system. A package that provides
+// 'mailx' must be installed. E.g. "user@example.com"
+Unattended-Upgrade::Mail "<%= @email %>";
+
+// Set this value to "true" to get emails only on errors. Default
+// is to always send a mail if Unattended-Upgrade::Mail is set
+Unattended-Upgrade::MailOnlyOnError "<%= @on_error %>";
+
+// Do automatic removal of new unused dependencies after the upgrade
+// (equivalent to apt-get autoremove)
+Unattended-Upgrade::Remove-Unused-Dependencies "<%= @auto_remove %>";
+
+// Automatically reboot *WITHOUT CONFIRMATION* if
+//  the file /var/run/reboot-required is found after the upgrade
+Unattended-Upgrade::Automatic-Reboot "<%= @auto_reboot %>";
+
+// If automatic reboot is enabled and needed, reboot at the specific
+// time instead of immediately
+//  Default: "now"
+Unattended-Upgrade::Automatic-Reboot-Time "<%= @reboot_time %>";
+
+// Use apt bandwidth limit feature, this example limits the download
+// speed to 70kb/sec
+//Acquire::http::Dl-Limit "70";

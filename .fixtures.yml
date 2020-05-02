@@ -3,9 +3,24 @@
 ---
 fixtures:
   repositories:
+    accounts:
+      repo: 'https://github.com/puppetlabs/puppetlabs-accounts.git'
+      ref: 'v6.1.1'
+    alternative:
+      repo: 'https://github.com/voxpupuli/puppet-alternatives.git'
+      ref: 'v3.0.0'
     apt:
       repo: 'https://github.com/puppetlabs/puppetlabs-apt.git'
       ref: 'v7.4.1'
+    augeas:
+      repo: 'https://github.com/camptocamp/puppet-augeas.git'
+      ref: '1.9.0'
+    augeas_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-augeas_core.git'
+      ref: '1.0.5'
+    augeasproviders_core:
+      repo: 'https://github.com/hercules-team/augeasproviders_core'
+      ref: '2.6.0'
     concat:
       repo: 'https://github.com/puppetlabs/puppetlabs-concat.git'
       ref: 'v6.2.0'
@@ -22,9 +37,27 @@ fixtures:
     git:
       repo: 'https://github.com/puppetlabs/puppetlabs-git.git'
       ref: '0.5.0'
+    hiera:
+      repo: 'https://github.com/voxpupuli/puppet-hiera.git'
+      ref: 'v4.0.0'
+    host_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-host_core.git'
+      ref: '1.0.3'
     inifile:
       repo: 'https://github.com/puppetlabs/puppetlabs-inifile.git'
       ref: 'v4.1.0'
+    mailalias_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
+      ref: '1.0.6'
+    ntp:
+      repo: 'https://github.com/puppetlabs/puppetlabs-ntp.git'
+      ref: 'v8.3.0'
+    ohmyzsh:
+      repo: 'https://github.com/rehanone/puppet-ohmyzsh.git'
+      ref: '2.3.2'
+    postfix:
+      repo: 'https://github.com/camptocamp/puppet-postfix.git'
+      ref: '1.10.0'
     postgresql:
       repo: 'https://github.com/puppetlabs/puppetlabs-postgresql.git'
       ref: 'v6.4.0'
@@ -37,20 +70,38 @@ fixtures:
     puppetdb:
       repo: 'https://github.com/puppetlabs/puppetlabs-puppetdb.git'
       ref: '7.4.0'
+    puppetserver_gem:
+      repo: 'https://github.com/puppetlabs/puppetlabs-puppetserver_gem.git'
+      ref: '1.1.1'
     ruby:
       repo: 'https://github.com/puppetlabs/puppetlabs-ruby.git'
       ref: 'v1.0.1'
     r10k:
       repo: 'https://github.com/voxpupuli/puppet-r10k.git'
       ref: 'v8.2.0'
+    ssh:
+      repo: 'https://github.com/saz/puppet-ssh.git'
+      ref: 'v6.1.0'
+    sshkeys:
+      repo: 'https://github.com/puppetlabs/puppetlabs-sshkeys_core'
+      ref: '2.0.0'
     stdlib:
       repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
       ref: 'v6.3.0'
+    sysctl:
+      repo: 'https://github.com/hercules-team/augeasproviders_sysctl'
+      ref: '2.5.0'
     translate:
       repo: 'https://github.com/puppetlabs/puppetlabs-translate.git'
       ref: 'v2.2.0'
     vcsrepo:
       repo: 'https://github.com/puppetlabs/puppetlabs-vcsrepo.git'
       ref: 'v3.1.0'
+    vim:
+      repo: 'https://github.com/saz/puppet-vim'
+      ref: 'v2.7.0'
+    wireguard:
+      repo: 'https://github.com/spacedog/puppet-wireguard.git'
+      ref: 'v0.4.2'
   symlinks:
     profile: "#{source_dir}"

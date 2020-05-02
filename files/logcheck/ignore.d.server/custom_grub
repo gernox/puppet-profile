@@ -1,0 +1,2 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ grub-common\[[[:digit:]]+\]:( )+\* Recording successful boot for GRUB$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ grub-common\[[[:digit:]]+\]:( )+\.\.\.done\.$
