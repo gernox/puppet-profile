@@ -8,6 +8,8 @@
 class profile::shells::zsh (
   Boolean $manage_zsh_package = false,
   String $zsh_package_name    = 'zsh',
+  String $pure_url            = 'https://github.com/sindresorhus/pure.git',
+  String $pure_revision       = 'c42bd354943ba4cf2da3ecf493fca4fef0b2722c',
 ) {
   if $manage_zsh_package {
     package { $zsh_package_name:
@@ -21,14 +23,9 @@ class profile::shells::zsh (
     disable_auto_update => true,
   }
 
-  ::ohmyzsh::theme { 'root':
-    theme => 'evan',
-  }
-
   profile::tools::create_dir { '/root/.oh-my-zsh/custom': }
-  -> profile::tools::create_dir { '/root/.oh-my-zsh/custom/themes': }
 
-  file { '/root/.oh-my-zsh/custom/puppet.zsh':
+  file { '/root/.oh-my-zsh/custom/zsh_completion.zsh':
     ensure  => present,
     owner   => 'root',
     group   => 'root',
@@ -37,7 +34,7 @@ class profile::shells::zsh (
     require => Profile::Tools::Create_dir['/root/.oh-my-zsh/custom'],
   }
 
-  file { '/root/.oh-my-zsh/custom/path.zsh':
+  file { '/root/.oh-my-zsh/custom/puppet.zsh':
     ensure  => present,
     owner   => 'root',
     group   => 'root',
@@ -55,12 +52,20 @@ class profile::shells::zsh (
     require => Profile::Tools::Create_dir['/root/.oh-my-zsh/custom'],
   }
 
-  file { '/root/.oh-my-zsh/custom/themes/evan.zsh-theme':
+  file { '/root/.oh-my-zsh/custom/pure.zsh':
     ensure  => present,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => file('profile/shells/zsh/evan-theme-override.zsh'),
-    require => Profile::Tools::Create_dir['/root/.oh-my-zsh/custom/themes'],
+    content => file('profile/shells/zsh/pure.zsh'),
+    require => Profile::Tools::Create_dir['/root/.oh-my-zsh/custom'],
+  }
+
+  vcsrepo { '/root/.oh-my-zsh/custom/pure':
+    ensure   => present,
+    provider => git,
+    source   => $pure_url,
+    revision => $pure_revision,
+    require  => Profile::Tools::Create_dir['/root/.oh-my-zsh/custom'],
   }
 }

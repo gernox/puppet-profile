@@ -36,6 +36,7 @@ class profile::editors::vim (
     ensure   => present,
     provider => git,
     source   => $theme_url,
+    revision => $theme_revision,
     require  => Profile::Tools::Create_dir['/root/.vim/bundle'],
   }
 
