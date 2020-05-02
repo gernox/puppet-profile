@@ -24,7 +24,7 @@ define profile::ssh::keyscan (
   $known_hosts_dir = dirname($_known_hosts_path)
 
   exec { "ssh-keyscan-${title}":
-    command => "ssh-keyscan ${host} >> ${_known_hosts_path}",
+    command => "/usr/bin/ssh-keyscan ${host} >> ${_known_hosts_path}",
     user    => $user,
     unless  => "/bin/grep ${host} ${_known_hosts_path}",
     require => Profile::Tools::Create_dir[$_known_hosts_path],

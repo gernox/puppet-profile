@@ -74,7 +74,7 @@ define profile::ssh::keygen (
   }
 
   $command = delete_undef_values([
-    'ssh-keygen',
+    '/usr/bin/ssh-keygen',
     $type_opt,
     $bits_opt,
     $filename_opt,
