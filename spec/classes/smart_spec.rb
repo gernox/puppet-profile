@@ -18,7 +18,7 @@ describe 'profile::smart', type: :class do
               owner: 'root',
               group: 'root',
               mode: '0751',
-              source: 'puppet:///modules/profile/smart-test.sh',
+              source: 'puppet:///modules/profile/smart/smart-test.sh',
             )
         }
         it { is_expected.to contain_class('profile::smart::short') }
