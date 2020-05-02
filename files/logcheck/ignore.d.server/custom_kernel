@@ -13,6 +13,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] read cpu [[:digit:]]+ ibrs val 0$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] libceph: [[:alnum:]]+ [[:alnum:].:]+ socket closed \(con state [[:alnum:]]+\)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] IPTables-Dropped:.*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] iptables: .*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] hrtimer: interrupt took [[:digit:]]+ ns$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] systemd: [[:digit:]]+ output lines suppressed due to ratelimiting$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] perf: interrupt took too long \([[:digit:]]+ > [[:digit:]]+\), lowering kernel\.perf_event_max_sample_rate to [[:digit:]]+$
