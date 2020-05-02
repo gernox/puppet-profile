@@ -3,8 +3,8 @@
 #
 # @example
 #   Define the hardening classes to include. Set a class name to an empty string to avoid to include it
-#    onsuma::hardening::pam_class: ''
-#    onsuma::hardening::packages_class: ''
+#    profile::hardening::pam_class: ''
+#    profile::hardening::packages_class: ''
 #
 # @param manage
 #   If to actually manage any resource

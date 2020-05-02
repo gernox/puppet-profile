@@ -67,6 +67,12 @@ profile::puppet::puppetdb::report_ttl: 7d
 profile::puppet::puppetdb::max_mem: 512m
 profile::puppet::puppetdb::initial_mem: 256m
 
+profile::ssh::server::server_name: '%{facts.fqdn}'
+profile::ssh::server::description: 'Change me in hiera "profile::ssh::server::description"'
+profile::ssh::server::motd_template: 'profile/ssh/server/motd.erb'
+profile::ssh::server::authorized_keys: {}
+profile::ssh::client::ssh_options: {}
+
 lookup_options:
   profile::firewall::system_rules:
     merge:
@@ -75,3 +81,11 @@ lookup_options:
   profile::firewall::psad::auto_dl:
     merge:
       strategy: unique
+  profile::hardening::sysctl::entries:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::ssh::server::authorized_keys:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true

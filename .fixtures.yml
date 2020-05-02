@@ -67,6 +67,12 @@ fixtures:
     r10k:
       repo: 'https://github.com/voxpupuli/puppet-r10k.git'
       ref: 'v8.2.0'
+    ssh:
+      repo: 'https://github.com/saz/puppet-ssh.git'
+      ref: 'v6.1.0'
+    sshkeys:
+      repo: 'https://github.com/puppetlabs/puppetlabs-sshkeys_core'
+      ref: '2.0.0'
     stdlib:
       repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
       ref: 'v6.3.0'

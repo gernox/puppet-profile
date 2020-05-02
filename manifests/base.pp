@@ -7,5 +7,7 @@ class profile::base {
   contain profile::editors::vim
   contain profile::firewall
   contain profile::hardening
+  contain profile::logs::rsyslog
   contain profile::mail::postfix
+  contain profile::ssh
 }
