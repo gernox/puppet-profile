@@ -9,5 +9,6 @@ class profile::base {
   contain profile::hardening
   contain profile::logs::rsyslog
   contain profile::mail::postfix
+  contain profile::shells::zsh
   contain profile::ssh
 }

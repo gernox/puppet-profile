@@ -43,6 +43,9 @@ fixtures:
     mailalias_core:
       repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
       ref: '1.0.6'
+    ohmyzsh:
+      repo: 'https://github.com/rehanone/puppet-ohmyzsh.git'
+      ref: '2.3.2'
     postfix:
       repo: 'https://github.com/camptocamp/puppet-postfix.git'
       ref: '1.10.0'
