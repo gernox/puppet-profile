@@ -1,0 +1,1 @@
+^\w{3} [ :0-9 ]{11} vision(x[12]|10|11) smartd\[[0-9]+\]: Device: \/dev\/sd[ab], failed to read Temperature$

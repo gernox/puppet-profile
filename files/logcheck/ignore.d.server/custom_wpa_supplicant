@@ -1,0 +1,1 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ wpa_supplicant\[[[:digit:]]+\]: [[:alnum:]]+: WPA: Group rekeying completed with [[:alnum:]:]+ \[GTK=CCMP\]$

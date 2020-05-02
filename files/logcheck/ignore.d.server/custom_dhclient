@@ -1,0 +1,3 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: DHCPREQUEST of [[:alnum:].:]+ on [[:alnum:]]+ to [[:alnum:].:]+ port [[:digit:]]+ \(xid=[[:alnum:]]+\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: DHCPACK of [[:alnum:].:]+ from [[:alnum:].:]+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: bound to [[:alnum:].:]+ \-\- renewal in [[:digit:]]+ seconds\.$

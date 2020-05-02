@@ -49,10 +49,37 @@ profile::firewall::ignore_rules:
   - '-i br-.*'
 profile::firewall::psad::notification_mail: 'root@localhost'
 
+profile::hosts::hosts:
+  localhost:
+    ip: 127.0.0.1
+  ip6-localhost:
+    ip: '::1'
+    host_aliases: ip6-loopback
+  ip6-localnet:
+    ip: 'fe00::0'
+  ip6-mcastprefix:
+    ip: 'ff00::0'
+  ip6-allnodes:
+    ip: 'ff02::1'
+  ip6-allrouters:
+    ip: 'ff02::2'
+  ip6-allhosts:
+    ip: 'ff02::3'
+
+profile::kernel_modules::blacklist:
+  floppy:
+    ensure: present
+
 profile::mail::postfix::myorigin: '%{facts.fqdn}'
 profile::mail::postfix::mydestination: '%{facts.hostname} localhost.%{facts.domain} %{facts.fqdn}'
 profile::mail::postfix::mynetworks: '127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128'
 profile::mail::postfix::smtp_listen: 127.0.0.1
+
+profile::packages::packages:
+  software-properties-common: {}
+  apt-transport-https: {}
+  linux-headers-generic: {}
+  postgresql-client: {}
 
 profile::puppet::agent::puppet_collection: puppet6
 profile::puppet::agent::puppet_version: auto
@@ -73,7 +100,13 @@ profile::ssh::server::motd_template: 'profile/ssh/server/motd.erb'
 profile::ssh::server::authorized_keys: {}
 profile::ssh::client::ssh_options: {}
 
+profile::wireguard::interfaces: {}
+
 lookup_options:
+  profile::hosts::hosts:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
   profile::firewall::system_rules:
     merge:
       strategy: deep
@@ -82,6 +115,10 @@ lookup_options:
     merge:
       strategy: unique
   profile::hardening::sysctl::entries:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::kernel_modules::blacklist:
     merge:
       strategy: deep
       merge_hash_arrays: true

@@ -1,0 +1,5 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-elasticsearch\[[[:digit:]]+\]: \[[-[:alnum:]:,]+\]\[INFO \].*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-elasticsearch\[[[:digit:]]+\]: \[[-[:alnum:]:,]+\]\[INFO \]\[o\.e\.c\.m\.MetaDataMappingService\] \[[[:alnum:]]+\] \[.+\] update_mapping \[doc\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-elasticsearch\[[[:digit:]]+\]: \[[-[:alnum:]:,]+\]\[WARN \].* overhead, spent \[[.[:digit:]]+[m]?s\] collecting in the last \[[.[:digit:]]+s\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-elasticsearch\[[[:digit:]]+\]: \[[-[:alnum:]:,]+\]\[WARN \]\[o\.e\.d\.c\.m\.MetaDataCreateIndexService\] \[\-LpPRkg\] the default number of shards will change from \[5\] to \[1\] in 7\.0\.0; if you wish to continue using the default of \[5\] shards, you must manage this on the create index request or with an index template$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-elasticsearch\[[[:digit:]]+\]: \[[-[:alnum:]:,]+\]\[WARN \]\[o\.e\.d\.i\.m\.MapperService  \] \[\-LpPRkg\] \[_default_\] mapping is deprecated since it is not useful anymore now that indexes cannot have more than one type$

@@ -1,0 +1,9 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: Applied catalog in [-+]?([0-9]*\.[0-9]+|[0-9]+) seconds$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ puppet-agent\[[[:digit:]]+\]: \(\/Stage\[main\]\/Ssh::Knownhosts\/Sshkey.+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(\/Stage\[main\]\/Ruby\/Package\[rubygems\]\/ensure\) created$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[1\]: (Stopping|Starting|Started) The Marionette Collective\.+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[1\]: mcollective\.service: Supervising process [[:alnum:]]+ which is not our child\. We'll most likely not notice when it exits\.$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: Failed to apply catalog: no parameter named 'ensure'$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: (Using|Retrieving|Loading|Caching|Applying) .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ inotify-puppet.+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(Puppet::Type::Firewall::ProviderIptables\) Skipping unparsable iptables rule:.*$

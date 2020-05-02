@@ -1,0 +1,6 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd.*: action 'action [0-9]+' resumed.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd-2007: action 'action [0-9]+' suspended.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd.*: action 'action [0-9]+' suspended, next retry is \w{3} \w{3} [ :0-9]{16} \[try http:\/\/www.rsyslog.com\/e\/2007 \]$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ liblogging-stdlog:.*rsyslogd was HUPed$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd:.*rsyslogd was HUPed$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ [._[:alnum:]-]+ [ :[:digit:]]{11} liblogging-stdlog: .+HUPed

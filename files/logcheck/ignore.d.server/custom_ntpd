@@ -1,0 +1,2 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: Listen normally on [0-9]+ (eth|br)[0-9]+ [[:alnum:]:\.]{7,39} UDP [0-9]+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: peers refreshed$

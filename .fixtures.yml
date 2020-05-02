@@ -3,6 +3,9 @@
 ---
 fixtures:
   repositories:
+    accounts:
+      repo: 'https://github.com/puppetlabs/puppetlabs-accounts.git'
+      ref: 'v6.1.1'
     alternative:
       repo: 'https://github.com/voxpupuli/puppet-alternatives.git'
       ref: 'v3.0.0'
@@ -37,12 +40,18 @@ fixtures:
     hiera:
       repo: 'https://github.com/voxpupuli/puppet-hiera.git'
       ref: 'v4.0.0'
+    host_core:
+      repo: 'https://github.com/puppetlabs/puppetlabs-host_core.git'
+      ref: '1.0.3'
     inifile:
       repo: 'https://github.com/puppetlabs/puppetlabs-inifile.git'
       ref: 'v4.1.0'
     mailalias_core:
       repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
       ref: '1.0.6'
+    ntp:
+      repo: 'https://github.com/puppetlabs/puppetlabs-ntp.git'
+      ref: 'v8.3.0'
     ohmyzsh:
       repo: 'https://github.com/rehanone/puppet-ohmyzsh.git'
       ref: '2.3.2'
@@ -91,5 +100,8 @@ fixtures:
     vim:
       repo: 'https://github.com/saz/puppet-vim'
       ref: 'v2.7.0'
+    wireguard:
+      repo: 'https://github.com/spacedog/puppet-wireguard.git'
+      ref: 'v0.4.2'
   symlinks:
     profile: "#{source_dir}"

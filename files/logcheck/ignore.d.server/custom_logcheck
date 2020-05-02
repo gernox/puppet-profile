@@ -1,0 +1,2 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(logcheck\) CMD \(   if \[ -x \/usr\/sbin\/logcheck \]; then nice -n10 \/usr\/sbin\/logcheck; fi\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: pam_unix\(cron:session\): session opened for user logcheck by \(uid=0\)$

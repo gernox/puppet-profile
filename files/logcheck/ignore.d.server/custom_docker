@@ -1,0 +1,12 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: time="[._[:alnum:]:-]+" level=info msg=.*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: [[:digit:]\-]+ [[:digit:]\:]+,[[:digit:]\:]+ DEBG 'nginx' stderr output:
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: .+ Latency .+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: [dD]eleted.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: Total reclaimed.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: .+ "HEAD .+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-puppetdb.+: .+ INFO .+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+ \* (10|Background|R?DB).+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: .+(POST|OPTIONS|PUT|GET).+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-piwik.+ already loaded
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+ pull after error.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dockerd.+"NetworkDB stats.+
