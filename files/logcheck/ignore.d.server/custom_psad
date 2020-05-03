@@ -1,0 +1,1 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ psad: email limit reached for src: [[:alnum:].:]+$

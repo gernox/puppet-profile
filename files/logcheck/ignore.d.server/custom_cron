@@ -6,3 +6,4 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(root\) CMD \(  \[ \-x \/usr\/lib\/php\/sessionclean \] && if \[ ! \-d \/run\/systemd\/system \]; then \/usr\/lib\/php\/sessionclean; fi\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(root\) CMD \(if \[ \-x \/usr\/share\/mdadm\/checkarray \] && \[ \$\(date \+%d\) \-le 7 \]; then \/usr\/share\/mdadm\/checkarray \-\-cron \-\-all \-\-idle \-\-quiet; fi\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(root\) CMD \(   test \-x \/etc\/cron\.daily\/popularity\-contest && \/etc\/cron\.daily\/popularity\-contest \-\-crond\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ crontab\[[0-9]+\]: \([[:alnum:]]+\) LIST \([[:alnum:]]+\)$

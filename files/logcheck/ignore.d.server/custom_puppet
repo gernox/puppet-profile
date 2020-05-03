@@ -7,3 +7,6 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: (Using|Retrieving|Loading|Caching|Applying) .*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ inotify-puppet.+$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(Puppet::Type::Firewall::ProviderIptables\) Skipping unparsable iptables rule:.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: Puppet::SSL::Host is deprecated and will be removed in a future release of Puppet\.$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]:    \(location: \/opt\/puppetlabs\/puppet\/lib\/ruby\/vendor_ruby\/puppet\/ssl\/host\.rb:235:in `initialize'\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(\/File\[[\.\/_[:alnum:]-]+\]\/ensure\) defined content as '{md5}[[:alnum:]]+'$

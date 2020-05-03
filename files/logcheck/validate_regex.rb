@@ -14,6 +14,7 @@ def validate_folder(folder)
     end
 
     puts(stderr)
+    puts(stderr)
     puts("Error in #{regex}")
     exit 2
   end
