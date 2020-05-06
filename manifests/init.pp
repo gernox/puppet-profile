@@ -55,8 +55,6 @@ class profile (
   String $fqdn                                     = $::fqdn,
   String $hostname                                 = $::hostname,
   String $domain                                   = $::domain,
-  String $location                                 = $::location,
-  String $node_type                                = $::nodetype,
   Optional[String] $role                           = $::role,
 
   # General network settings
