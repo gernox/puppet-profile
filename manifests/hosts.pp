@@ -6,13 +6,11 @@
 # @param location
 #
 class profile::hosts (
-
-  String $fqdn     = $::fqdn,
-  String $hostname = $::hostname,
-  String $ip       = fact('networking.ip'),
-  Hash $hosts      = {},
+  String $fqdn     = $profile::fqdn,
+  String $hostname = $profile::hostname,
+  String $ip       = $profile::primary_ip,
+  Hash $hosts      = $profile::hosts,
 ) {
-
   host { $fqdn:
     ip           => $ip,
     host_aliases => $hostname,

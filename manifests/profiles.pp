@@ -1,20 +1,19 @@
 # @summary
-#   Includes base classes that manage the common baseline resources generally applied to any node
+#   Manages profiles specific to nodes, roles or any other group
 #
 # @example
-#   Manage common baseline classes
-#     profile::base::classes:
-#       users: profile::users
-#       sudo: profile::sudo
+#   Manage common profile classes
+#     profile::profiles::classes:
+#       webserver: gernox_nginx
 #
 # @example
 #   Disable inclusion of a class of the given marker
-#     profile::base::classes:
-#       users: ''
+#     profile::profiles::classes:
+#       webserver: ''
 #
 # @example
 #   Disable the whole class
-#     profile::base::manage: false
+#     profile::profiles::manage: false
 #
 # @param manage
 #   If to actually manage any resource
@@ -22,7 +21,7 @@
 # @param classes
 #   Hash with a list of classes to include
 #
-class profile::base (
+class profile::profiles (
   Boolean $manage = $::profile::manage,
   Hash $classes   = {},
 ) {

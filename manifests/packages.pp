@@ -5,7 +5,7 @@
 # @param ensure
 #
 class profile::packages (
-  Hash $packages = {},
+  Hash $packages = $::profile::packages,
 ) {
   $package_default = {
     ensure   => present,

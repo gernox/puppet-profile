@@ -1,4 +1,31 @@
 ---
+profile::node_type: server
+profile::blacklist_kernel_modules:
+  floppy:
+    ensure: present
+profile::sysctl_entries: {}
+profile::packages:
+  software-properties-common: {}
+  apt-transport-https: {}
+  linux-headers-generic: {}
+  postgresql-client: {}
+profile::hosts:
+  localhost:
+    ip: 127.0.0.1
+  ip6-localhost:
+    ip: '::1'
+    host_aliases: ip6-loopback
+  ip6-localnet:
+    ip: 'fe00::0'
+  ip6-mcastprefix:
+    ip: 'ff00::0'
+  ip6-allnodes:
+    ip: 'ff02::1'
+  ip6-allrouters:
+    ip: 'ff02::2'
+  ip6-allhosts:
+    ip: 'ff02::3'
+
 profile::apt::unattended_upgrades::manage_package: true
 profile::apt::unattended_upgrades::package_name: unattended-upgrades
 profile::apt::unattended_upgrades::email: root
@@ -49,27 +76,6 @@ profile::firewall::ignore_rules:
   - '-i br-.*'
 profile::firewall::psad::notification_mail: 'root@localhost'
 
-profile::hosts::hosts:
-  localhost:
-    ip: 127.0.0.1
-  ip6-localhost:
-    ip: '::1'
-    host_aliases: ip6-loopback
-  ip6-localnet:
-    ip: 'fe00::0'
-  ip6-mcastprefix:
-    ip: 'ff00::0'
-  ip6-allnodes:
-    ip: 'ff02::1'
-  ip6-allrouters:
-    ip: 'ff02::2'
-  ip6-allhosts:
-    ip: 'ff02::3'
-
-profile::kernel_modules::blacklist:
-  floppy:
-    ensure: present
-
 profile::mail::postfix::myorigin: '%{facts.fqdn}'
 profile::mail::postfix::mydestination: '%{facts.hostname} localhost.%{facts.domain} %{facts.fqdn}'
 profile::mail::postfix::mynetworks: '127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128'
@@ -114,7 +120,27 @@ profile::ssh::client::ssh_options: {}
 profile::wireguard::interfaces: {}
 
 lookup_options:
-  profile::hosts::hosts:
+  profile::pre::classes:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::base::classes:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::profiles::classes:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::firstrun::classes:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::hosts:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::packages:
     merge:
       strategy: deep
       merge_hash_arrays: true
@@ -125,11 +151,11 @@ lookup_options:
   profile::firewall::psad::auto_dl:
     merge:
       strategy: unique
-  profile::hardening::sysctl::entries:
+  profile::sysctl_entries:
     merge:
       strategy: deep
       merge_hash_arrays: true
-  profile::kernel_modules::blacklist:
+  profile::blacklist_kernel_modules:
     merge:
       strategy: deep
       merge_hash_arrays: true
