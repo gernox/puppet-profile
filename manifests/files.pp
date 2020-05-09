@@ -6,8 +6,8 @@
 # @param backup_paths
 #
 class profile::files (
-  String $base_dir    = '/gernox',
-  Array $backup_paths = [],
+  String $base_dir    = $profile::base_dir,
+  Array $backup_paths = $profile::backup_paths,
 ) {
 
   profile::tools::create_dir { '/root/.ssh':

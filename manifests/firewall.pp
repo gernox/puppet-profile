@@ -25,9 +25,6 @@ class profile::firewall (
   contain profile::firewall::pre
   contain profile::firewall::post
 
-  # Include psad
-  contain profile::firewall::psad
-
   # Include firewall module
   contain ::firewall
 

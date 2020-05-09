@@ -57,7 +57,7 @@ class profile::hardening::sysctl (
   Boolean $enable_rpfilter         = true,
   Boolean $rpfilter_loose          = false,
   Boolean $enable_log_martians     = true,
-  Hash $entries                    = {}
+  Hash $entries                    = $::profile::sysctl_entries
 ) {
   # set variables
   if $::architecture == 'amd64' or $::architecture == 'x86_64' {

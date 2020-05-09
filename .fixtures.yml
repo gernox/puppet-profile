@@ -49,6 +49,9 @@ fixtures:
     mailalias_core:
       repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
       ref: '1.0.6'
+    noop:
+      repo: 'https://github.com/trlinkin/trlinkin-noop.git'
+      ref: '1.0.1'
     ntp:
       repo: 'https://github.com/puppetlabs/puppetlabs-ntp.git'
       ref: 'v8.3.0'

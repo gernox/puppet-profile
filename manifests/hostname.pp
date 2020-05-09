@@ -14,14 +14,21 @@
 # @param update_host_entry
 #
 class profile::hostname (
-  String $host                   = $::hostname,
-  Variant[Undef, String] $fqdn   = $::fqdn,
-  Variant[Undef, String] $domain = $::domain,
-  String $ip                     = $::ipaddress,
+  String $host                   = $profile::hostname,
+  Variant[Undef, String] $fqdn   = $profile::fqdn,
+  Variant[Undef, String] $domain = $profile::domain,
+  String $ip                     = $profile::primary_ip,
 
   Boolean $update_hostname       = true,
   Boolean $update_host_entry     = true,
+
+  Boolean $no_noop               = false,
 ) {
+
+  if !$::profile::noop_mode and $no_noop {
+    info('Forces no-noop mode.')
+    noop(false)
+  }
 
   case $::kernel {
     'Linux': {

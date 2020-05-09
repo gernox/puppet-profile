@@ -4,7 +4,7 @@
 # @param blacklist
 #
 class profile::kernel_modules (
-  Hash $blacklist,
+  Hash $blacklist = $::profile::blacklist_kernel_modules,
 ) {
   file { '/etc/modprobe.d':
     ensure => directory,
