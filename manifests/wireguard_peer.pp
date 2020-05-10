@@ -18,7 +18,7 @@ define profile::wireguard_peer (
   String $internal_ip,
   String $external_ip,
   String $public_key,
-  String $ip                        = $profile::wireguard::ip,
+  String $ip                        = $profile::wireguard::internal_ip,
   String $private_key               = $profile::wireguard::private_key,
 ) {
   wireguard::interface { $name:
