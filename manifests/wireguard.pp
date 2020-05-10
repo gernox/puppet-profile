@@ -12,7 +12,6 @@ class profile::wireguard (
 
   String $fqdn       = $profile::fqdn,
   String $primary_ip = $profile::primary_ip,
-  Hash $nodes        = $profile::nodes,
 ) {
 
   @@profile::wireguard_peer { "peer_${fqdn}":
