@@ -14,14 +14,15 @@ class profile::wireguard (
   String $primary_ip  = $profile::primary_ip,
 ) {
 
-  @@profile::wireguard_peer { "peer_${fqdn}":
+  @@profile::wireguard_peer { "peer_${fqdn_rand(8)}":
     ensure      => present,
     internal_ip => $internal_ip,
     external_ip => $primary_ip,
     public_key  => $public_key,
+    tag         => $fqdn,
   }
 
-  Profile::Wireguard_peer <<| name != "peer_${fqdn}" |>>
+  Profile::Wireguard_peer <<| tag != $fqdn |>>
 
   class { '::wireguard':
     interfaces => $interfaces,
