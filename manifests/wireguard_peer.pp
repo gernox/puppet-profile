@@ -29,10 +29,10 @@ define profile::wireguard_peer (
     saveconfig  => false,
     peers       => [
       {
-        PublicKey           => $public_key,
-        AllowedIPs          => "${internal_ip}/32",
-        Endpoint            => "${external_ip}:51820",
-        PersistentKeepalive => 25,
+        'PublicKey'           => $public_key,
+        'AllowedIPs'          => "${internal_ip}/32",
+        'Endpoint'            => "${external_ip}:51820",
+        'PersistentKeepalive' => 25,
       }
     ],
   }
