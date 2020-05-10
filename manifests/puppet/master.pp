@@ -1,5 +1,6 @@
 class profile::puppet::master (
   Integer $purge_report_days,
+  Hash $nodes,
 ) {
 
   contain profile::puppet::hiera
@@ -21,6 +22,15 @@ class profile::puppet::master (
 31 1 * * root /usr/bin/find /opt/puppetlabs/server/data/puppetserver/reports/ -mtime ${purge_report_days} -type f -delete
 ",
     mode    => '0740',
+  }
+
+  $nodes.each |$host, $ip| {
+    firewall { "110 IPv4 allow Puppetserver access for ${host} from ${ip}":
+      source => $ip,
+      dport  => 8140,
+      proto  => 'tcp',
+      action => 'accept',
+    }
   }
 
 }
