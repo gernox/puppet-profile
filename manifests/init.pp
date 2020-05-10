@@ -48,34 +48,35 @@
 #
 class profile (
   # global vars
-  Boolean $manage                                  = true,
-  Boolean $enable_firstrun                         = false,
-  Boolean $noop_mode                               = lookup('noop_mode', Boolean, 'first', true),
+  Boolean $manage                                   = true,
+  Boolean $enable_firstrun                          = false,
+  Boolean $noop_mode                                = lookup('noop_mode', Boolean, 'first', true),
 
-  String $fqdn                                     = $::fqdn,
-  String $hostname                                 = $::hostname,
-  String $domain                                   = $::domain,
-  Optional[String] $role                           = $::role,
+  String $fqdn                                      = $::fqdn,
+  String $hostname                                  = $::hostname,
+  String $domain                                    = $::domain,
+  Optional[String] $role                            = $::role,
 
   # General network settings
-  Optional[Stdlib::Compat::Ip_address] $primary_ip = fact('networking.ip'),
-  Optional[String] $primary_interface              = fact('networking.primary'),
-  Optional[String] $timezone                       = undef,
-  Hash $hosts                                      = {},
+  Optional[Stdlib::Compat::Ip_address] $primary_ip  = fact('networking.ip'),
+  Optional[Stdlib::Compat::Ip_address] $internal_ip = undef,
+  Optional[String] $primary_interface               = fact('networking.primary'),
+  Optional[String] $timezone                        = undef,
+  Hash $hosts                                       = {},
 
   # Backup settings
-  Optional[String] $backup_port                    = undef,
-  Optional[Array[String]] $backup_paths            = [],
+  Optional[String] $backup_port                     = undef,
+  Optional[Array[String]] $backup_paths             = [],
 
   # System settings
-  String $base_dir                                 = '/gernox',
-  Hash $sysctl_entries                             = {},
-  Hash $blacklist_kernel_modules                   = {},
-  Hash $packages                                   = {},
+  String $base_dir                                  = '/gernox',
+  Hash $sysctl_entries                              = {},
+  Hash $blacklist_kernel_modules                    = {},
+  Hash $packages                                    = {},
 
   # General endpoints and variables
-  Hash $settings                                   = {},
-  Boolean $force_ordering                          = true,
+  Hash $settings                                    = {},
+  Boolean $force_ordering                           = true,
 
 ) {
   if $facts['firstrun'] == 'done' or $enable_firstrun == false {
