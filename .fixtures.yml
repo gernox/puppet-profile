@@ -46,9 +46,15 @@ fixtures:
     inifile:
       repo: 'https://github.com/puppetlabs/puppetlabs-inifile.git'
       ref: 'v4.1.0'
+    letsencrypt:
+      repo: 'https://github.com/voxpupuli/puppet-letsencrypt.git'
+      ref: 'v5.0.0'
     mailalias_core:
       repo: 'https://github.com/puppetlabs/puppetlabs-mailalias_core.git'
       ref: '1.0.6'
+    nginx:
+      repo: 'https://github.com/voxpupuli/puppet-nginx.git'
+      ref: 'v1.1.0'
     noop:
       repo: 'https://github.com/trlinkin/trlinkin-noop.git'
       ref: '1.0.1'
