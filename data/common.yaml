@@ -136,6 +136,10 @@ lookup_options:
     merge:
       strategy: deep
       merge_hash_arrays: true
+  profile::certificates:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
   profile::hosts:
     merge:
       strategy: deep

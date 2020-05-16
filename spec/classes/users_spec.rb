@@ -19,18 +19,6 @@ describe 'profile::users', type: :class do
         it { is_expected.to have_profile__users__managed_resource_count(0) }
       end
 
-#      describe 'with root_pw parameter' do
-#        let(:params) { { root_pw: 'test-pw' } }
-#
-#        describe 'Root user is created'
-#        it {
-#          is_expected.to contain_user('root')
-#            .with(
-#              password: 'test-pw',
-#            )
-#        }
-#      end
-
       describe 'with delete_unmanaged parameter' do
         let(:params) { { delete_unmanaged: true } }
 
@@ -106,14 +94,6 @@ describe 'profile::users', type: :class do
 
         it { is_expected.to have_user_resource_count(1) }
       end
-
-#      describe 'with invalid parameter values' do
-#        describe 'root_pw cannot be empty string' do
-#          let(:params) { { root_pw: '' } }
-#
-#          it { is_expected.to raise_error(Puppet::PreformattedError, %r{/^Evaluation Error:.*/}) }
-#        end
-#      end
     end
   end
 end

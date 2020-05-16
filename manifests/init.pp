@@ -73,6 +73,7 @@ class profile (
   Hash $sysctl_entries                              = {},
   Hash $blacklist_kernel_modules                    = {},
   Hash $packages                                    = {},
+  Hash $certificates                                = {},
 
   # General endpoints and variables
   Hash $settings                                    = {},

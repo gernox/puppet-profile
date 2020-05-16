@@ -14,10 +14,11 @@
 # @private_key
 #
 define profile::wireguard_peer (
-  Enum['absent', 'present'] $ensure = present,
   String $internal_ip,
   String $external_ip,
   String $public_key,
+
+  Enum['absent', 'present'] $ensure = present,
   String $ip                        = $profile::wireguard::internal_ip,
   String $private_key               = $profile::wireguard::private_key,
 ) {
