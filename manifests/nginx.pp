@@ -29,7 +29,6 @@ class profile::nginx (
     group   => 'root',
     mode    => '0644',
     content => $dhparam,
-    require => Class['nginx'],
     notify  => Service['nginx'],
   }
 
