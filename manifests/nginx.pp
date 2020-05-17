@@ -24,6 +24,7 @@ class profile::nginx (
     ssl_session_tickets       => 'off',
     http_raw_append           => [
       'resolver_timeout 10s;',
+      "include ${nginx::snippets_dir}/anonymized_log_format.conf;",
     ]
   }
 
@@ -33,6 +34,22 @@ class profile::nginx (
     mode    => '0644',
     content => $dhparam,
     notify  => Service['nginx'],
+  }
+
+  $snippetAnonymzedLogFormat = @("SNIPPET"/L)
+map $remote_addr $remote_addr_anon {
+  ~(?P<ip>\d+\.\d+\.\d+)\.    $ip.0;
+  ~(?P<ip>[^:]+:[^:]+):       $ip::;
+  default                     0.0.0.0;
+}
+
+log_format anonymized '$remote_addr_anon - $remote_user [$time_local] '
+   '"$request" $status $body_bytes_sent '
+   '"$http_referer" "$http_user_agent"';
+| SNIPPET
+
+  nginx::resource::snippet { 'anonymized_log_format':
+    raw_content   => $snippetAnonymzedLogFormat,
   }
 
   create_resources('nginx::resource::server', $servers)
