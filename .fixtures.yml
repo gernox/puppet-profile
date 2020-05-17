@@ -54,7 +54,7 @@ fixtures:
       ref: '1.0.6'
     nginx:
       repo: 'https://github.com/voxpupuli/puppet-nginx.git'
-      ref: 'v1.1.0'
+      ref: '845d06f4388480e2d4a73948dcbb99be7766cfc4'
     noop:
       repo: 'https://github.com/trlinkin/trlinkin-noop.git'
       ref: '1.0.1'
