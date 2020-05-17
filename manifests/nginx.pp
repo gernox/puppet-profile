@@ -22,6 +22,10 @@ class profile::nginx (
     ssl_session_timeout       => '1d',
     ssl_session_cache         => 'shared:MozSSL:10m',
     ssl_session_tickets       => 'off',
+    http_raw_append           => [
+      'resolver 127.0.0.1;',
+      'resolver_timeout 10s;',
+    ]
   }
 
   file { '/etc/nginx/dhparam.pem':
