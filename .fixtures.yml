@@ -43,6 +43,9 @@ fixtures:
     grafana:
       repo: 'https://github.com/voxpupuli/puppet-grafana.git'
       ref: 'v6.1.0'
+    healthcheck:
+      repo: 'https://github.com/voxpupuli/puppet-healthcheck.git'
+      ref: 'v1.0.1'
     hiera:
       repo: 'https://github.com/voxpupuli/puppet-hiera.git'
       ref: 'v4.0.0'
