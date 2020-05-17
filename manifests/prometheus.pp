@@ -48,10 +48,10 @@ class profile::prometheus (
     ],
   }
 
-  class { 'prometheus::alertmanager':
-    version       => $alertmanager_version,
-    route         => $alertmanager_route,
-    receivers     => $alertmanager_receivers,
-    extra_options => $alertmanager_extra_options,
-  }
+  # class { 'prometheus::alertmanager':
+  #   version       => $alertmanager_version,
+  #   route         => $alertmanager_route,
+  #   receivers     => $alertmanager_receivers,
+  #   extra_options => $alertmanager_extra_options,
+  # }
 }
