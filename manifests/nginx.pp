@@ -24,6 +24,7 @@ class profile::nginx (
     ssl_session_timeout       => '1d',
     ssl_session_cache         => 'shared:MozSSL:10m',
     ssl_session_tickets       => 'off',
+    server_tokens             => 'off',
     snippets_dir              => $snippets_dir,
     http_raw_append           => [
       'resolver_timeout 10s;',
