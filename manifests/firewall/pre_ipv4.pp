@@ -64,15 +64,15 @@ class profile::firewall::pre_ipv4 (
     iniface => 'lo',
     action  => 'accept',
   }
-  -> firewall { '002 - IPv4: reject local traffic not on loopback interface':
+  -> firewall { '002 - IPv4: accept all docker0':
+    iniface => 'docker0',
+    action  => 'accept',
+  }
+  -> firewall { '003 - IPv4: reject local traffic not on loopback interface':
     iniface     => '! lo',
     proto       => 'all',
     destination => '127.0.0.1/8',
     action      => 'reject',
-  }
-  -> firewall { '003 - IPv4: accept all docker0':
-    iniface => 'docker0',
-    action  => 'accept',
   }
   -> firewall { '004 - IPv4: accept related established rules':
     proto  => 'all',
