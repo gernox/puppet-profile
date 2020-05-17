@@ -4,5 +4,6 @@
 class profile::nginx (
 ) {
   class { '::nginx':
+    server_purge => true,
   }
 }
