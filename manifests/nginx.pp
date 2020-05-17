@@ -19,6 +19,9 @@ class profile::nginx (
     ssl_stapling              => 'on',
     ssl_stapling_verify       => 'on',
     ssl_dhparam               => '/etc/nginx/dhparam.pem',
+    ssl_session_timeout       => '1d',
+    ssl_session_cache         => 'shared:MozSSL:10m',
+    ssl_session_tickets       => 'off',
   }
 
   file { '/etc/nginx/dhparam.pem':
