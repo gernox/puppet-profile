@@ -25,7 +25,6 @@ class profile::nginx (
     ssl_session_cache         => 'shared:MozSSL:10m',
     ssl_session_tickets       => 'off',
     snippets_dir              => $snippets_dir,
-    http_format_log           => 'anonymized',
     http_raw_append           => [
       'resolver_timeout 10s;',
       "include ${snippets_dir}/anonymized_log_format.conf;",
