@@ -7,6 +7,8 @@ class profile::nginx (
   String $dhparam,
   Hash $servers = {},
 ) {
+  $snippets_dir = '/etc/nginx/snippets'
+
   class { '::nginx':
     confd_purge               => true,
     server_purge              => true,
@@ -22,9 +24,10 @@ class profile::nginx (
     ssl_session_timeout       => '1d',
     ssl_session_cache         => 'shared:MozSSL:10m',
     ssl_session_tickets       => 'off',
+    snippets_dir              => $snippets_dir,
     http_raw_append           => [
       'resolver_timeout 10s;',
-      "include ${nginx::snippets_dir}/anonymized_log_format.conf;",
+      "include ${snippets_dir}/anonymized_log_format.conf;",
     ]
   }
 
@@ -36,7 +39,7 @@ class profile::nginx (
     notify  => Service['nginx'],
   }
 
-  $snippetAnonymzedLogFormat = @("SNIPPET"/L)
+  $snippet_anonymzed_log_format = @("SNIPPET"/L)
 map $remote_addr $remote_addr_anon {
   ~(?P<ip>\d+\.\d+\.\d+)\.    $ip.0;
   ~(?P<ip>[^:]+:[^:]+):       $ip::;
@@ -49,7 +52,7 @@ log_format anonymized '$remote_addr_anon - $remote_user [$time_local] '
 | SNIPPET
 
   nginx::resource::snippet { 'anonymized_log_format':
-    raw_content   => $snippetAnonymzedLogFormat,
+    raw_content => $snippet_anonymzed_log_format,
   }
 
   create_resources('nginx::resource::server', $servers)
