@@ -12,6 +12,9 @@ fixtures:
     apt:
       repo: 'https://github.com/puppetlabs/puppetlabs-apt.git'
       ref: 'v7.4.1'
+    archive:
+      repo: 'https://github.com/voxpupuli/puppet-archive.git'
+      ref: 'v4.5.0'
     augeas:
       repo: 'https://github.com/camptocamp/puppet-augeas.git'
       ref: '1.9.0'
@@ -37,6 +40,9 @@ fixtures:
     git:
       repo: 'https://github.com/puppetlabs/puppetlabs-git.git'
       ref: '0.5.0'
+    grafana:
+      repo: 'https://github.com/voxpupuli/puppet-grafana.git'
+      ref: 'v6.1.0'
     hiera:
       repo: 'https://github.com/voxpupuli/puppet-hiera.git'
       ref: 'v4.0.0'
@@ -70,6 +76,9 @@ fixtures:
     postgresql:
       repo: 'https://github.com/puppetlabs/puppetlabs-postgresql.git'
       ref: 'v6.4.0'
+    prometheus:
+      repo: 'https://github.com/voxpupuli/puppet-prometheus.git'
+      ref: 'v8.4.0'
     provision:
       repo: 'https://github.com/puppetlabs/provision.git'
       ref: '3b21c3208807caafa853ff06c9d940d2057a0e04'
@@ -100,6 +109,9 @@ fixtures:
     sysctl:
       repo: 'https://github.com/hercules-team/augeasproviders_sysctl'
       ref: '2.5.0'
+    systemd:
+      repo: 'https://github.com/camptocamp/puppet-systemd.git'
+      ref: '2.9.0'
     translate:
       repo: 'https://github.com/puppetlabs/puppetlabs-translate.git'
       ref: 'v2.2.0'

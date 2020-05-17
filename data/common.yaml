@@ -93,6 +93,27 @@ profile::ntp::restrictions:
   - '127.0.0.1'
   - '-6 ::1'
 
+profile::prometheus::prometheus_version: '2.5.0'
+profile::prometheus::prometheus_alerts: {}
+profile::prometheus::prometheus_scrape_configs: []
+profile::prometheus::prometheus_storage_path: /var/lib/prometheus
+profile::prometheus::prometheus_storage_retention: '1y'
+profile::prometheus::alertmanager_version: '0.15.3'
+profile::prometheus::alertmanager_route: {}
+profile::prometheus::alertmanager_receivers: []
+profile::prometheus::alertmanager_extra_options: ''
+
+profile::grafana::http_domain: localhost
+profile::grafana::http_root_url: '%(protocol)s://%(domain)s/'
+profile::grafana::db_user: grafana
+profile::grafana::db_name: grafana
+profile::grafana::db_port: 5432
+profile::grafana::admin_user: admin
+
+profile::prometheus::node_exporter::version: '0.17.0'
+profile::prometheus::node_exporter::options: '--collector.ntp.server 0.de.pool.ntp.org'
+
+
 profile::packages::packages:
   software-properties-common: {}
   apt-transport-https: {}
