@@ -39,16 +39,16 @@ class profile::nginx (
     notify  => Service['nginx'],
   }
 
-  $snippet_anonymzed_log_format = @("SNIPPET"/L)
-map \$remote_addr \$remote_addr_anon {
-  ~(?P<ip>\d+\.\d+\.\d+)\.    \$ip.0;
-  ~(?P<ip>[^:]+:[^:]+):       \$ip::;
+  $snippet_anonymzed_log_format = @(SNIPPET)
+map $remote_addr $remote_addr_anon {
+  ~(?P<ip>\d+\.\d+\.\d+)\.    $ip.0;
+  ~(?P<ip>[^:]+:[^:]+):       $ip::;
   default                     0.0.0.0;
 }
 
-log_format anonymized '$\remote_addr_anon - $\remote_user [$\time_local] '
-   '"$\request" $\status $\body_bytes_sent '
-   '"$\http_referer" "$\http_user_agent"';
+log_format anonymized '$remote_addr_anon - $remote_user [$time_local] '
+   '"$request" $status $body_bytes_sent '
+   '"$http_referer" "$http_user_agent"';
 | SNIPPET
 
   nginx::resource::snippet { 'anonymized_log_format':
