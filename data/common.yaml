@@ -41,8 +41,9 @@ profile::apt::unattended_upgrades::configuration_file: /etc/apt/apt.conf.d/50una
 profile::apt::unattended_upgrades::repositories: []
 
 profile::dns::resolver::nameservers:
-  - '8.8.8.8'
-  - '8.8.4.4'
+  - '46.182.19.48'
+  - '91.239.100.100'
+  - '89.233.43.71'
 profile::dns::resolver::options:
   - 'rotate'
   - 'timeout:1'
