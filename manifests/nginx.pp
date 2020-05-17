@@ -55,5 +55,28 @@ log_format anonymized '$remote_addr_anon - $remote_user [$time_local] '
     raw_content => $snippet_anonymzed_log_format,
   }
 
+  $snippet_asset_defaults = @(SNIPPET)
+location = /favicon.ico {
+  access_log off;
+  log_not_found off;
+}
+
+location ~ /\. {
+  access_log off;
+  log_not_found off;
+  deny all;
+}
+
+location ~ ~$ {
+  access_log off;
+  log_not_found off;
+  deny all;
+}
+| SNIPPET
+
+  nginx::resource::snippet { 'asset_defaults':
+    raw_content => $snippet_asset_defaults,
+  }
+
   create_resources('nginx::resource::server', $servers)
 }
