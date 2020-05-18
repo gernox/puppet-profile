@@ -1,0 +1,21 @@
+{
+    "device_name": "<%= @device_name %>",
+    "listening_port" : <%= @listening_port %>,
+    "storage_path" : "<%= @storage_path %>",
+    "pid_file" : "/var/run/resilio-sync/sync.pid",
+    "use_upnp" : true,
+    "download_limit" : <%= @download_limit %>,
+    "upload_limit" : <%= @upload_limit %>,
+    "directory_root" : "<%= @directory_root %>",
+    "directory_root_policy" : "belowroot",
+
+    "webui" : {
+      "listen" : "<%= @webui_listen_host %>:<%= @webui_listen_port %>",
+      "login" : "<%= @webui_user %>",
+      "password" : "<%= @webui_password %>",
+      "allow_empty_password" : false
+    },
+
+    "folder_rescan_interval" : 600,
+    "send_statistics": false
+}

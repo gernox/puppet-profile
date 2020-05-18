@@ -133,6 +133,20 @@ profile::puppet::puppetdb::report_ttl: 7d
 profile::puppet::puppetdb::max_mem: 512m
 profile::puppet::puppetdb::initial_mem: 256m
 
+profile::resilio::device_name: "%{facts.fqdn}"
+profile::resilio::listening_port: 0
+profile::resilio::storage_path: /var/lib/resilio-sync/
+profile::resilio::download_limit: 0
+profile::resilio::upload_limit: 0
+profile::resilio::directory_root: /
+profile::resilio::webui_listen_host: 127.0.0.1
+profile::resilio::webui_listen_port: 8888
+profile::resilio::webui_user: admin
+
+profile::resilio::repo::repo_url: http://linux-packages.resilio.com/resilio-sync/deb/
+profile::resilio::repo::key_id: E1B42102EBECA969E30D2CA4BE66CC4C3F171DE2
+profile::resilio::repo::key_url: https://linux-packages.resilio.com/resilio-sync/key.asc
+
 profile::ssh::server::server_name: '%{facts.fqdn}'
 profile::ssh::server::description: 'Change me in hiera "profile::ssh::server::description"'
 profile::ssh::server::motd_template: 'profile/ssh/server/motd.erb'
