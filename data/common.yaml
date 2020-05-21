@@ -120,6 +120,9 @@ profile::packages::packages:
   linux-headers-generic: {}
   postgresql-client: {}
 
+profile::postgresql::version: '10'
+profile::postgresql::dbs: {}
+
 profile::puppet::agent::puppet_collection: puppet6
 profile::puppet::agent::puppet_version: auto
 
@@ -200,6 +203,10 @@ lookup_options:
       strategy: deep
       merge_hash_arrays: true
   profile::ssh::server::authorized_keys:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::postgresql::dbs:
     merge:
       strategy: deep
       merge_hash_arrays: true
