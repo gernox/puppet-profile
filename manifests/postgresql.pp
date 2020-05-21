@@ -25,7 +25,9 @@ class profile::postgresql (
 
   $dbs.each |$k, $v| {
     postgresql::server::db { $k:
-      * => $v,
+      *        => $v,
+      user     => $v['user'],
+      password => postgresql::postgresql_password($v['user'], $v['password']),
     }
   }
 
