@@ -52,13 +52,13 @@ class profile::postgresql::backup (
   # Systemd service and timer
   file { '/etc/systemd/system/pg_backup.service':
     ensure  => present,
-    content => file('profile/postgresql/pg_backup.service.erb'),
+    content => template('profile/postgresql/pg_backup.service.erb'),
     notify  => Service['pg_backup'],
   }
 
   file { '/etc/systemd/system/pg_backup.timer':
     ensure  => present,
-    content => file('profile/postgresql/pg_backup.timer.erb'),
+    content => template('profile/postgresql/pg_backup.timer.erb'),
     notify  => Service['pg_backup'],
   }
 
