@@ -7,7 +7,7 @@
 #
 class profile::postgresql::backup (
   String $backup_time,
-  String $password = $profile::postgresql::backup::password,
+  String $password = $profile::postgresql::password,
   String $base_dir = $profile::base_dir,
 ) {
   $backup_dir = "${base_dir}/backups/postgresql"
