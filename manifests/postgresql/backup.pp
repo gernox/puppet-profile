@@ -12,7 +12,7 @@ class profile::postgresql::backup (
 ) {
   $backup_dir = "${base_dir}/backups/postgresql"
 
-  file { '/home/postgres/.pgpass':
+  file { '/var/lib/postgresql/.pgpass':
     owner   => 'postgres',
     group   => 'postgres',
     mode    => '0600',
