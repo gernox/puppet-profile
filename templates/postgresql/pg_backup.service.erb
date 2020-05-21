@@ -4,7 +4,7 @@ Requires=postgresql.service
 
 [Service]
 Type=oneshot
-Use=postgres
+User=postgres
 Group=postgres
 ExecStart=<%= @backup_dir %>/pg_backup_rotated.sh
 
