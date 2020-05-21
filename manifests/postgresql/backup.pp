@@ -41,7 +41,7 @@ class profile::postgresql::backup (
     mode   => '0755',
     source => 'puppet:///modules/profile/postgresql/pg_backup_rotated.sh',
   }
-  -> file { "${backup_dir}/pg_backup.sh":
+  -> file { "${backup_dir}/pg_backup.config":
     ensure  => present,
     owner   => 'root',
     group   => 'root',
