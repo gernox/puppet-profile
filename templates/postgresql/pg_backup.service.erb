@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily backup of PostgreSQL database
+Requires=postgresql.service
+
+[Service]
+Type=oneshot
+Use=postgres
+Group=postgres
+ExecStart=<%= @backup_dir %>/pg_backup_rotated.sh
+
+[Install]
+WantedBy=network.target

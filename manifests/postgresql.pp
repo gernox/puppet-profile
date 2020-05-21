@@ -28,4 +28,6 @@ class profile::postgresql (
       * => $v,
     }
   }
+
+  contain profile::postgresql::backup
 }
