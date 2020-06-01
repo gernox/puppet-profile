@@ -14,15 +14,31 @@ class profile::wireguard (
   String $primary_ip  = $profile::primary_ip,
 ) {
 
-  @@profile::wireguard_peer { "peer_${fqdn_rand(8)}":
-    ensure      => present,
-    internal_ip => $internal_ip,
-    external_ip => $primary_ip,
-    public_key  => $public_key,
-    tag         => $fqdn,
+  # Ignore puppetdb during bootstrap
+  $peers = $::settings::storeconfigs ? {
+    true    => puppetdb_query(
+      "resources { type = 'Class' and title = 'Profile::Wireguard' and certname != '${fqdn}' }"
+    ),
+    default => []
   }
 
-  Profile::Wireguard_peer <<| tag != $fqdn |>>
+  $wireguard_peers = $peers.map |$peer| {
+    {
+      'PublicKey'           => $peer['parameters']['public_key'],
+      'AllowedIPs'          => "${peer['parameters']['internal_ip']}/32",
+      'Endpoint'            => "${peer['parameters']['primary_ip']}:51820",
+      'PersistentKeepalive' => 25,
+    }
+  }
+
+  wireguard::interface { 'wg0':
+    ensure      => present,
+    private_key => $private_key,
+    listen_port => 51820,
+    address     => $primary_ip,
+    saveconfig  => false,
+    peers       => $wireguard_peers,
+  }
 
   class { '::wireguard':
     interfaces => $interfaces,
