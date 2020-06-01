@@ -8,6 +8,7 @@ profile::packages:
   software-properties-common: {}
   apt-transport-https: {}
   linux-headers-generic: {}
+  pkg-config: {}
   postgresql-client: {}
 profile::hosts:
   localhost:
