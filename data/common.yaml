@@ -10,6 +10,7 @@ profile::packages:
   linux-headers-generic: {}
   pkg-config: {}
   postgresql-client: {}
+
 profile::hosts:
   localhost:
     ip: 127.0.0.1
@@ -115,13 +116,6 @@ profile::php::version: '7.2'
 
 profile::prometheus::node_exporter::version: '1.0.0-rc.1'
 profile::prometheus::node_exporter::options: '--collector.ntp.server 0.de.pool.ntp.org'
-
-
-profile::packages::packages:
-  software-properties-common: {}
-  apt-transport-https: {}
-  linux-headers-generic: {}
-  postgresql-client: {}
 
 profile::postgresql::version: '10'
 profile::postgresql::dbs: {}
