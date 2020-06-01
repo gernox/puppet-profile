@@ -11,6 +11,7 @@ class profile::php (
   -> class { '::php':
     manage_repos => false,
     fpm          => true,
+    dev          => true,
     composer     => true,
     extensions   => {
       bcmath  => {},
