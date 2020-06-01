@@ -35,7 +35,7 @@ class profile::wireguard (
     ensure      => present,
     private_key => $private_key,
     listen_port => 51820,
-    address     => $primary_ip,
+    address     => $internal_ip,
     saveconfig  => false,
     peers       => $wireguard_peers,
   }
