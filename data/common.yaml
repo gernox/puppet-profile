@@ -110,6 +110,8 @@ profile::grafana::db_name: grafana
 profile::grafana::db_port: 5432
 profile::grafana::admin_user: admin
 
+profile::php::version: '7.2'
+
 profile::prometheus::node_exporter::version: '1.0.0-rc.1'
 profile::prometheus::node_exporter::options: '--collector.ntp.server 0.de.pool.ntp.org'
 
