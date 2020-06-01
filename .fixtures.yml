@@ -73,6 +73,9 @@ fixtures:
     ohmyzsh:
       repo: 'https://github.com/rehanone/puppet-ohmyzsh.git'
       ref: '2.3.2'
+    php:
+      repo: 'https://github.com/voxpupuli/puppet-php.git'
+      ref: 'v7.1.0'
     postfix:
       repo: 'https://github.com/camptocamp/puppet-postfix.git'
       ref: '1.10.0'
