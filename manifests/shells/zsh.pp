@@ -19,6 +19,7 @@ class profile::shells::zsh (
   }
 
   ::ohmyzsh::install { 'root':
+    ensure              => present,
     set_sh              => true,
     disable_auto_update => true,
   }
