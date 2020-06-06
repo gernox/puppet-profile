@@ -18,6 +18,7 @@ class profile::php (
       imagick => {
         package_name => 'php-imagick',
       },
+      pgsql   => {},
       xmlrpc  => {},
     },
     settings     => {
