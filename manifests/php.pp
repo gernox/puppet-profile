@@ -15,6 +15,7 @@ class profile::php (
     composer     => true,
     extensions   => {
       bcmath  => {},
+      curl    => {},
       imagick => {
         package_name => 'php-imagick',
       },
