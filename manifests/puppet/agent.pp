@@ -3,6 +3,7 @@ class profile::puppet::agent (
   String $puppet_version,
   String $puppet_server,
   String $run_interval,
+  String $last_run_file,
 ) {
 
   class { 'puppet_agent':
@@ -38,6 +39,14 @@ class profile::puppet::agent (
     section => 'main',
     setting => 'runinterval',
     value   => $run_interval,
+  }
+
+  ini_setting { 'puppet agent lastrunfile':
+    ensure  => present,
+    path    => $settings::config,
+    section => 'agent',
+    setting => 'lastrunfile',
+    value   => $last_run_file,
   }
 
   file { '/etc/logrotate.d/puppet-agent':
