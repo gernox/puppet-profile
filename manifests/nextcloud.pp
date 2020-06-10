@@ -42,8 +42,8 @@ class profile::nextcloud (
     user         => $system_user,
     group        => $system_group,
     require      => [
-      File[$app_dir],
-      File[$data_dir],
+      Profile::Tools::Create_dir[$app_dir],
+      Profile::Tools::Create_dir[$data_dir],
     ],
   }
 
