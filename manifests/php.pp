@@ -14,6 +14,9 @@ class profile::php (
     dev          => true,
     composer     => true,
     extensions   => {
+      apcu  => {
+        package_name => 'php-apcu',
+      },
       bcmath   => {},
       bz2      => {},
       curl     => {},
