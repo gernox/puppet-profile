@@ -1,0 +1,7 @@
+[Unit]
+Description=Nextcloud cron.php job
+
+[Service]
+User=<%= @system_user %>
+Group=<%= @system_group %>
+ExecStart=/usr/bin/php -f /var/www/nextcloud/cron.php

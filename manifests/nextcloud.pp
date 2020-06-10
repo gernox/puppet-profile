@@ -54,7 +54,51 @@ class profile::nextcloud (
     owner   => $system_user,
     group   => $system_group,
     mode    => '0700',
-    content => template('profile/nextcloud/autoconfig.php.erb'),
+    content => template('profile/nextcloud/config/autoconfig.php.erb'),
+  }
+
+  -> file { "${_app_dir}/nextcloud/config/cache.config.php":
+    ensure  => present,
+    owner   => $system_user,
+    group   => $system_group,
+    mode    => '0640',
+    content => template('profile/nextcloud/config/cache.config.php.erb'),
+  }
+  -> file { "${_app_dir}/nextcloud/config/email.config.php":
+    ensure  => present,
+    owner   => $system_user,
+    group   => $system_group,
+    mode    => '0640',
+    content => template('profile/nextcloud/config/email.config.php.erb'),
+  }
+  -> file { "${_app_dir}/nextcloud/config/user.config.php":
+    ensure  => present,
+    owner   => $system_user,
+    group   => $system_group,
+    mode    => '0640',
+    content => template('profile/nextcloud/config/user.config.php.erb'),
+  }
+
+  file { '/etc/systemd/system/nextcloud-cron.service':
+    ensure  => present,
+    content => template('profile/nextcloud/nextcloud-cron.service.erb'),
+    notify  => Service['nextcloud-cron'],
+  }
+
+  file { '/etc/systemd/system/nextcloud-cron.timer':
+    ensure  => present,
+    content => template('profile/nextcloud/nextcloud-cron.timer.erb'),
+    notify  => Service['nextcloud-cron'],
+  }
+
+  service { 'nextcloud-cron':
+    ensure  => running,
+    enable  => true,
+    name    => 'nextcloud-cron.timer',
+    require => [
+      File['/etc/systemd/system/nextcloud-cron.timer'],
+      File['/etc/systemd/system/nextcloud-cron.service'],
+    ],
   }
 
 }
