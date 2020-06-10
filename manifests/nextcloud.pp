@@ -4,7 +4,6 @@
 class profile::nextcloud (
   String $version,
   Stdlib::HTTPUrl $archive_url,
-  String $app_dir,
   String $data_dir,
   String $system_user,
   String $system_group,
@@ -16,6 +15,7 @@ class profile::nextcloud (
   String $fqdn = $profile::fqdn,
 ) {
 
+  $_app_dir = '/var/www'
   $_default_config = {
     'dbhost'          => $db_host,
     'dbname'          => $db_name,
@@ -26,7 +26,7 @@ class profile::nextcloud (
   }
   $_real_config = $_default_config
 
-  profile::tools::create_dir { [ $app_dir, $_real_config['datadirectory'] ]:
+  profile::tools::create_dir { [ $_app_dir, $_real_config['datadirectory'] ]:
     owner => $system_user,
     group => $system_user,
     mode  => '0700',
@@ -36,13 +36,13 @@ class profile::nextcloud (
     path         => "/tmp/nextcloud-${version}.zip",
     source       => "${archive_url}/nextcloud-${version}.zip",
     extract      => true,
-    extract_path => $app_dir,
-    creates      => "${app_dir}/nextcloud/index.php",
+    extract_path => $_app_dir,
+    creates      => "${_app_dir}/nextcloud/index.php",
     cleanup      => true,
     user         => $system_user,
     group        => $system_group,
     require      => [
-      Profile::Tools::Create_dir[$app_dir],
+      Profile::Tools::Create_dir[$_app_dir],
       Profile::Tools::Create_dir[$data_dir],
     ],
   }

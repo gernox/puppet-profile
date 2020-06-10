@@ -115,7 +115,6 @@ profile::grafana::admin_user: admin
 
 profile::nextcloud::version: '19.0.0'
 profile::nextcloud::archive_url: https://download.nextcloud.com/server/releases/
-profile::nextcloud::app_dir: /var/www
 profile::nextcloud::system_user: www-data
 profile::nextcloud::system_group: www-data
 profile::nextcloud::db_user: nextcloud
