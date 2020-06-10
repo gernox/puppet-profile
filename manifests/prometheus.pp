@@ -28,6 +28,16 @@ class profile::prometheus (
   Array $alertmanager_receivers,
   String $alertmanager_extra_options,
 ) {
+  # Ignore puppetdb during bootstrap
+  $node_exporter_targets = $::settings::storeconfigs ? {
+    true    => puppetdb_query(
+      'resources { type = "Class" and title = "Profile::Prometheus::Node_exporter" }'
+    ),
+    default => {}
+  }.map |$c| {
+    "${c['certname']}:9100"
+  }
+
   $default_scrape_configs = [
     {
       job_name        => 'node_exporter',
@@ -35,7 +45,7 @@ class profile::prometheus (
       scrape_timeout  => '10s',
       static_configs  => [
         {
-          targets => [], # TODO
+          targets => $node_exporter_targets,
           labels  => {
             alias => 'node exporter',
           },
