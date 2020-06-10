@@ -10,6 +10,7 @@ profile::packages:
   linux-headers-generic: {}
   pkg-config: {}
   postgresql-client: {}
+  unzip: {}
 
 profile::hosts:
   localhost:
