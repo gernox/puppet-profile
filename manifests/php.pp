@@ -3,6 +3,7 @@
 #
 class profile::php (
   String $version,
+  Hash $fpm_pools,
   Hash $extensions,
   Hash $settings,
 ) {
@@ -13,6 +14,7 @@ class profile::php (
   -> class { '::php':
     manage_repos => false,
     fpm          => true,
+    fpm_pools    => $fpm_pools,
     dev          => true,
     composer     => true,
     extensions   => $extensions,
