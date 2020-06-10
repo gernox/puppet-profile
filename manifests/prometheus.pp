@@ -28,12 +28,44 @@ class profile::prometheus (
   Array $alertmanager_receivers,
   String $alertmanager_extra_options,
 ) {
+  $default_scrape_configs = [
+    {
+      job_name        => 'node_exporter',
+      scrape_interval => '10s',
+      scrape_timeout  => '10s',
+      static_configs  => [
+        {
+          targets => [], # TODO
+          labels  => {
+            alias => 'node exporter',
+          },
+        },
+      ],
+    },
+    {
+      job_name        => 'prometheus',
+      scrape_interval => '10s',
+      scrape_timeout  => '10s',
+      static_configs  => [
+        {
+          targets => [
+            '127.0.0.1:9090',
+          ],
+          labels  => {
+            alias => 'prometheus',
+          },
+        },
+      ],
+    }
+  ]
+  $_scrape_configs = $default_scrape_configs + $prometheus_scrape_configs
+
   class { '::prometheus::server':
     version              => $prometheus_version,
     alerts               => $prometheus_alerts,
     localstorage         => $prometheus_storage_path,
     storage_retention    => $prometheus_storage_retention,
-    scrape_configs       => $prometheus_scrape_configs,
+    scrape_configs       => $_scrape_configs,
     extra_options        => '--web.enable-admin-api',
     alertmanagers_config => [
       {
