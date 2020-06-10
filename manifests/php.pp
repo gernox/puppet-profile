@@ -15,11 +15,14 @@ class profile::php (
     composer     => true,
     extensions   => {
       bcmath   => {},
+      bz2      => {},
       curl     => {},
       gd       => {},
+      gmp      => {},
       imagick  => {
         package_name => 'php-imagick',
       },
+      intl     => {},
       mbstring => {},
       pgsql    => {},
       xmlrpc   => {},
