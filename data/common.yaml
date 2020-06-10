@@ -112,6 +112,16 @@ profile::grafana::db_name: grafana
 profile::grafana::db_port: 5432
 profile::grafana::admin_user: admin
 
+profile::nextcloud::version: '19.0.0'
+profile::nextcloud::archive_url: https://download.nextcloud.com/server/releases/
+profile::nextcloud::app_dir: /var/www/nextcloud
+profile::nextcloud::system_user: www-data
+profile::nextcloud::system_group: www-data
+profile::nextcloud::db_user: nextcloud
+profile::nextcloud::db_name: nextcloud
+profile::nextcloud::db_host: localhost
+profile::nextcloud::db_port: 5432
+
 profile::php::version: '7.2'
 
 profile::prometheus::node_exporter::version: '1.0.0-rc.1'
