@@ -14,13 +14,16 @@ class profile::php (
     dev          => true,
     composer     => true,
     extensions   => {
-      bcmath  => {},
-      curl    => {},
-      imagick => {
+      bcmath   => {},
+      curl     => {},
+      gd       => {},
+      imagick  => {
         package_name => 'php-imagick',
       },
-      pgsql   => {},
-      xmlrpc  => {},
+      mbstring => {},
+      pgsql    => {},
+      xmlrpc   => {},
+      zip      => {},
     },
     settings     => {
       'PHP/max_execution_time'  => '90',
