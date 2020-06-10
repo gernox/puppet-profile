@@ -31,11 +31,11 @@ class profile::prometheus (
   # Ignore puppetdb during bootstrap
   $node_exporter_targets = $::settings::storeconfigs ? {
     true    => puppetdb_query(
-      'resources { type = "Class" and title = "Profile::Prometheus::Node_exporter" }'
+      'resources { type = "Class" and title = "Profile::Prometheus::Node_exporter" and parameters.address is not null }'
     ),
     default => {}
   }.map |$c| {
-    "${c['certname']}:9100"
+    "${c['parameters']['address']}:9100"
   }
 
   $default_scrape_configs = [
