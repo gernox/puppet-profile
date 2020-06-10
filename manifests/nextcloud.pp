@@ -17,20 +17,19 @@ class profile::nextcloud (
 ) {
 
   $_default_config = {
-    'dbhost'              => $db_host,
-    'dbname'              => $db_name,
-    'dbuser'              => $db_user,
-    'dbpassword'          => $db_password,
-    'datadirectory'       => $data_dir,
-    'trusted_domains'     => ['localhost', $fqdn],
+    'dbhost'          => $db_host,
+    'dbname'          => $db_name,
+    'dbuser'          => $db_user,
+    'dbpassword'      => $db_password,
+    'datadirectory'   => $data_dir,
+    'trusted_domains' => ['localhost', $fqdn],
   }
   $_real_config = $_default_config
 
-  file { [ $app_dir, $_real_config['datadirectory'] ]:
-    ensure => directory,
-    owner  => $system_user,
-    group  => $system_user,
-    mode   => '0700',
+  profile::tools::create_dir { [ $app_dir, $_real_config['datadirectory'] ]:
+    owner => $system_user,
+    group => $system_user,
+    mode  => '0700',
   }
 
   archive { "nextcloud-${version}":
