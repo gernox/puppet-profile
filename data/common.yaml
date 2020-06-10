@@ -121,6 +121,7 @@ profile::nextcloud::db_user: nextcloud
 profile::nextcloud::db_name: nextcloud
 profile::nextcloud::db_host: localhost
 profile::nextcloud::db_port: 5432
+profile::nextcloud::admin_login: admin
 
 profile::php::version: '7.2'
 

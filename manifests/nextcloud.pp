@@ -12,6 +12,8 @@ class profile::nextcloud (
   String $db_user,
   Stdlib::Host $db_host,
   Integer $db_port,
+  String[1] $admin_login,
+  String[1] $admin_password,
   String $fqdn = $profile::fqdn,
 ) {
 
@@ -28,7 +30,7 @@ class profile::nextcloud (
 
   profile::tools::create_dir { [ $_app_dir, $_real_config['datadirectory'] ]:
     owner => $system_user,
-    group => $system_user,
+    group => $system_group,
     mode  => '0700',
   }
 
@@ -45,6 +47,14 @@ class profile::nextcloud (
       Profile::Tools::Create_dir[$_app_dir],
       Profile::Tools::Create_dir[$data_dir],
     ],
+  }
+
+  -> file { "${_app_dir}/nextcloud/config/autoconfig.php":
+    ensure  => present,
+    owner   => $system_user,
+    group   => $system_group,
+    mode    => '0700',
+    content => template('profile/nextcloud/autoconfig.php.erb'),
   }
 
 }
