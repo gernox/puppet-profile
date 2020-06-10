@@ -13,7 +13,7 @@ class profile::nextcloud (
   String $db_user,
   Stdlib::Host $db_host,
   Integer $db_port,
-  String $fqdn,
+  String $fqdn = $profile::fqdn,
 ) {
 
   $_default_config = {
