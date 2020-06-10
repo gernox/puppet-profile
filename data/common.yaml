@@ -124,6 +124,28 @@ profile::nextcloud::db_port: 5432
 profile::nextcloud::admin_login: admin
 
 profile::php::version: '7.2'
+profile::php::extensions:
+  apcu:
+    package_name: php-apcu
+  bcmath: {}
+  bz2: {}
+  curl: {}
+  gd: {}
+  gmp: {}
+  imagick:
+    package_name: php-imagick
+  intl: {}
+  mbstring: {}
+  pgsql: {}
+  xmlrpc: {}
+  zip: {}
+profile::php::settings:
+  PHP/max_execution_time: 90
+  PHP/max_input_time: 300
+  PHP/memory_limit: 512M
+  PHP/post_max_size: 512M
+  PHP/upload_max_filesize: 512M
+  Date/date.timezone: Europe/Berlin
 
 profile::prometheus::node_exporter::version: '1.0.0-rc.1'
 profile::prometheus::node_exporter::options: '--collector.ntp.server 0.de.pool.ntp.org'
