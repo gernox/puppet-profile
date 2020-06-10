@@ -9,6 +9,7 @@ class profile::prometheus::node_exporter (
   Stdlib::Compat::Ip_address $prometheus_ip,
   String $version,
   String $options,
+  String $address = $profile::fqdn,
 ) {
   class { '::prometheus::node_exporter':
     version       => $version,
