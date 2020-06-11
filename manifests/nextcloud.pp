@@ -71,12 +71,26 @@ class profile::nextcloud (
     mode    => '0640',
     content => template('profile/nextcloud/config/email.config.php.erb'),
   }
+  -> file { "${_app_dir}/nextcloud/config/log.config.php":
+    ensure  => present,
+    owner   => $system_user,
+    group   => $system_group,
+    mode    => '0640',
+    content => template('profile/nextcloud/config/log.config.php.erb'),
+  }
   -> file { "${_app_dir}/nextcloud/config/user.config.php":
     ensure  => present,
     owner   => $system_user,
     group   => $system_group,
     mode    => '0640',
     content => template('profile/nextcloud/config/user.config.php.erb'),
+  }
+
+  file { '/var/log/nextcloud.log':
+    ensure => present,
+    owner  => $system_user,
+    group  => $system_group,
+    mode   => '0640',
   }
 
   file { '/etc/systemd/system/nextcloud-cron.service':
