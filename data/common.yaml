@@ -149,7 +149,8 @@ profile::php::extensions:
     package_name: php-imagick
   intl: {}
   mbstring: {}
-  opcache: {}
+  opcache:
+    zend: true
   pgsql: {}
   xmlrpc: {}
   zip: {}
