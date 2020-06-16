@@ -1,0 +1,10 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Making backup directory in [[:alnum:]\/-]+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Performing globals backup$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: --------------------------------------------$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Globals backup$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Performing globals backup$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Performing schema-only backups$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: The following databases were matched for schema-only backup:$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: Performing full backups$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: (Custom|Plain) backup of [[:alnum:]]+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ pg_backup_rotated\.sh\[[0-9]+\]: All database backups complete!$

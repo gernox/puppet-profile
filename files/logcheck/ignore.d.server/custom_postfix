@@ -15,3 +15,5 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ postfix\/cleanup\[[0-9]+\]: [[:alnum:]]+: message\-id=<[-_.@[:alnum:]]+>$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ postfix\/pickup\[[0-9]+\]: [[:alnum:]]+: uid=[[:digit:]]+ from=<[[:alnum:]]+>$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ postfix\/smtpd\[[0-9]+\]: disconnect from (ip6\-)?localhost\[127.0.0.1\] helo=1 mail=1 rcpt=1 data=1 quit=1 commands=5$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ postfix\/smtpd\[[0-9]+\]: connect from localhost\[127.0.0.1\]$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ postfix\/smtpd\[[0-9]+\]: [[:alnum:]]+: client=localhost\[127.0.0.1\]$

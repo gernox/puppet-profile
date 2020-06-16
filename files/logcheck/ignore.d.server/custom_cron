@@ -7,3 +7,4 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(root\) CMD \(if \[ \-x \/usr\/share\/mdadm\/checkarray \] && \[ \$\(date \+%d\) \-le 7 \]; then \/usr\/share\/mdadm\/checkarray \-\-cron \-\-all \-\-idle \-\-quiet; fi\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(root\) CMD \(   test \-x \/etc\/cron\.daily\/popularity\-contest && \/etc\/cron\.daily\/popularity\-contest \-\-crond\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ crontab\[[0-9]+\]: \([[:alnum:]]+\) LIST \([[:alnum:]]+\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ CRON\[[0-9]+\]: \(puppetdb\) CMD \(\/usr\/bin\/find \/opt\/puppetlabs\/server\/data\/puppetdb\/stockpile\/discard\/ \-type f \-mtime 90 \-delete\)$
