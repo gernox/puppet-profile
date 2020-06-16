@@ -45,7 +45,7 @@ class profile::prometheus (
       scrape_timeout  => '10s',
       static_configs  => [
         {
-          targets => $node_exporter_targets,
+          targets => sort($node_exporter_targets),
           labels  => {
             alias => 'node exporter',
           },
