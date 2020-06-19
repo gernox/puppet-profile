@@ -35,32 +35,9 @@ class profile::grafana (
   String $admin_user,
   String $admin_password,
   String $secret_key,
+  Boolean $manage_nginx = false,
 ) {
-  contain ::gernox_docker
-
-  if !defined(Docker::Image["postgres:${postgresql_version}"]) {
-    ::docker::image { "postgres:${postgresql_version}":
-      ensure    => present,
-      image     => 'postgres',
-      image_tag => $postgresql_version,
-    }
-  }
-
-  ::docker::run { 'grafana-postgres':
-    image                 => "postgres:${postgresql_version}",
-    volumes               => [
-      '/srv/docker/grafana/postgresql/data:/var/lib/postgresql/data',
-    ],
-    health_check_interval => 30,
-    env                   => [
-      "POSTGRES_USER=${db_user}",
-      "POSTGRES_PASSWORD=${db_password}",
-      "POSTGRES_DB=${db_name}",
-    ],
-    ports                 => [
-      "${db_port}:5432",
-    ],
-  }
+  contain profile::postgresql
 
   class { '::grafana':
     cfg => {
@@ -117,5 +94,32 @@ class profile::grafana (
     url              => 'http://localhost:9090',
     access_mode      => 'proxy',
     is_default       => true,
+  }
+
+  if $manage_nginx {
+    contain profile::nginx
+
+    nginx::resource::server { 'grafana':
+      server_name => [
+        $http_domain,
+      ],
+      listen_port => 443,
+      format_log  => 'anonymized',
+      ssl         => true,
+      ssl_cert    => '/etc/ssl/certs/gernox_de.crt',
+      ssl_key     => '/etc/ssl/private/gernox_de.key',
+      locations   => {
+        grafana => {
+          location         => '/grafana/',
+          proxy            => "http://localhost:${http_port}/",
+          proxy_set_header => [
+            'Host $host',
+            'X-Real-IP $remote_addr',
+            'X-Forwarded-For $proxy_add_x_forwarded_for',
+            'X-Forwarded-Proto $scheme',
+          ],
+        },
+      },
+    }
   }
 }

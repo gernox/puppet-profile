@@ -2,9 +2,23 @@
 #   Manages the bareos backup server
 #
 class profile::backup::server (
+  String $webui_password,
+  String $director_password,
+  String $db_password,
   Hash $storages,
+  Boolean $manage_nginx_webui    = false,
+  Optional[String] $webui_domain = undef,
 ) {
+  $db_name = 'bareos'
+  $db_user = 'bareos'
+
   contain profile::postgresql
+  profile::postgresql::db { $db_name:
+    user     => $db_user,
+    password => $db_password,
+    encoding => 'SQL_ASCII',
+  }
+
   contain profile::backup::client
 
   $job_definitions = {
@@ -97,7 +111,7 @@ class profile::backup::server (
       volume_retention     => '180 days',
       maximum_volumes      => 100,
     },
-    'Differential'   => {
+    'Differential'    => {
       pool_type            => 'Backup',
       recycle              => true,
       auto_prune           => true,
@@ -107,7 +121,7 @@ class profile::backup::server (
       label_format         => 'Differential-',
     },
 
-    'Full'           => {
+    'Full'            => {
       pool_type            => 'Backup',
       recycle              => true,
       auto_prune           => true,
@@ -117,7 +131,7 @@ class profile::backup::server (
       label_format         => 'Full-',
     },
 
-    'Incremental'    => {
+    'Incremental'     => {
       pool_type            => 'Backup',
       recycle              => true,
       auto_prune           => true,
@@ -132,9 +146,55 @@ class profile::backup::server (
   }
 
   class { '::gernox_bareos::director':
-    jobdefs       => $job_definitions,
-    pools         => $pools,
-    storages      => $storages,
-    manage_apache => false,
+    jobdefs           => $job_definitions,
+    pools             => $pools,
+    storages          => $storages,
+    manage_apache     => false,
+    webui_password    => $webui_password,
+    director_password => $director_password,
+    db_name           => $db_name,
+    db_user           => $db_user,
+    db_password       => $db_password,
+  }
+
+  if $manage_nginx_webui {
+    contain profile::nginx
+
+    nginx::resource::server { 'bareos-webui':
+      server_name => [
+        $webui_domain,
+      ],
+      listen_port => 443,
+      format_log  => 'anonymized',
+      ssl         => true,
+      ssl_cert    => '/etc/ssl/certs/gernox_de.crt',
+      ssl_key     => '/etc/ssl/private/gernox_de.key',
+      www_root    => '/usr/share/bareos-webui/public',
+      try_files   => [
+        '$uri',
+        '$uri/',
+        '/index.php?$query_string',
+      ],
+      locations   => {
+        php => {
+          location            => '~ \.php$',
+          index_files         => [
+            'index.php',
+            'index.html',
+            'index.htm',
+          ],
+          fastcgi             => '127.0.0.1:9000',
+          fastcgi_param       => {
+            'APPLICATION_ENV' => 'production',
+          },
+          fastcgi_script      => undef,
+          location_cfg_append => {
+            fastcgi_connect_timeout => '1m',
+            fastcgi_read_timeout    => '1m',
+            fastcgi_send_timeout    => '1m',
+          },
+        },
+      }
+    }
   }
 }

@@ -5,7 +5,9 @@
 #
 class profile::nginx (
   String $dhparam,
-  Hash $servers = {},
+  Hash $servers                     = {},
+  Boolean $enable_default_site      = true,
+  Boolean $enable_http_ssl_redirect = true,
 ) {
   $snippets_dir = '/etc/nginx/snippets'
 
@@ -77,6 +79,42 @@ location ~ ~$ {
 
   nginx::resource::snippet { 'asset_defaults':
     raw_content => $snippet_asset_defaults,
+  }
+
+  if $enable_default_site {
+    nginx::resource::server { 'default-site':
+      server_name    => [
+        '_',
+      ],
+      ipv6_enable    => true,
+      listen_port    => 443,
+      listen_options => 'default_server',
+      format_log     => 'anonymized',
+      www_root       => '/srv/www',
+      ssl            => true,
+      ssl_cert       => '/etc/ssl/certs/gernox_de.crt',
+      ssl_key        => '/etc/ssl/private/gernox_de.key',
+      include_files  => [
+        '/etc/nginx/snippets/asset_defaults.conf',
+      ],
+    }
+  }
+
+  if $enable_http_ssl_redirect {
+    nginx::resource::server { 'http-ssl-redirect':
+      server_name         => [
+        '_',
+      ],
+      ipv6_enable         => true,
+      listen_port         => 80,
+      listen_options      => 'default_server',
+      access_log          => 'absent',
+      error_log           => 'absent',
+      index_files         => [],
+      location_cfg_append => {
+        rewrite => '^ https://$host$request_uri permanent',
+      },
+    }
   }
 
   create_resources('nginx::resource::server', $servers)

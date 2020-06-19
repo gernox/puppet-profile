@@ -43,6 +43,9 @@ fixtures:
     gernox_bareos:
       repo: 'https://github.com/gernox/puppet-bareos.git'
       ref: 'origin/production'
+    gernox_keycloak:
+      repo: 'https://github.com/gernox/puppet-keycloak.git'
+      ref: 'origin/production'
     git:
       repo: 'https://github.com/puppetlabs/puppetlabs-git.git'
       ref: '0.5.0'
