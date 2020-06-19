@@ -9,10 +9,13 @@ class profile::backup::client (
     #   schedule_res => 'WeeklyCycle',
     # },
     'aways-incremental'             => {
+      job_defs => 'AlwaysIncremental',
     },
     'aways-incremental-consolidate' => {
+      job_defs => 'AlwaysIncrementalConsolidate',
     },
     'aways-incremental-long-term'   => {
+      job_defs => 'AlwaysIncrementalLongTerm',
     },
   }
 
