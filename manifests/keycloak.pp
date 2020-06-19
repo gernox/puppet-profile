@@ -24,26 +24,21 @@ class profile::keycloak (
     contain profile::nginx
 
     nginx::resource::server { 'keycloak':
-      server_name => [
+      server_name      => [
         $http_domain,
       ],
-      listen_port => 443,
-      format_log  => 'anonymized',
-      ssl         => true,
-      ssl_cert    => '/etc/ssl/certs/gernox_de.crt',
-      ssl_key     => '/etc/ssl/private/gernox_de.key',
-      locations   => {
-        grafana => {
-          location         => '/grafana/',
-          proxy            => "http://localhost:${http_port}/",
-          proxy_set_header => [
-            'Host $host',
-            'X-Real-IP $remote_addr',
-            'X-Forwarded-For $proxy_add_x_forwarded_for',
-            'X-Forwarded-Proto $scheme',
-          ],
-        },
-      },
+      listen_port      => 443,
+      format_log       => 'anonymized',
+      proxy            => "http://localhost:${http_port}/",
+      proxy_set_header => [
+        'Host $host',
+        'X-Real-IP $remote_addr',
+        'X-Forwarded-For $proxy_add_x_forwarded_for',
+        'X-Forwarded-Proto $scheme',
+      ],
+      ssl              => true,
+      ssl_cert         => '/etc/ssl/certs/gernox_de.crt',
+      ssl_key          => '/etc/ssl/private/gernox_de.key',
     }
   }
 
