@@ -54,13 +54,6 @@ describe 'profile::firewall', type: :class do
         it { is_expected.to contain_firewall('101 - IPv4: allow https access') }
         it { is_expected.to contain_firewall('101 - IPv6: allow https access') }
       end
-
-      context 'psad' do
-        it { is_expected.to contain_package('psad').with_ensure('installed') }
-        it { is_expected.to contain_service('psad') }
-        it { is_expected.to contain_file('/etc/psad/psad.conf').that_notifies('Service[psad]') }
-        it { is_expected.to contain_file('/etc/psad/auto_dl').that_notifies('Service[psad]') }
-      end
     end
   end
 end

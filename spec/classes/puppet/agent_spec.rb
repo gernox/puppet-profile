@@ -11,6 +11,7 @@ describe 'profile::puppet::agent', type: :class do
         {
           puppet_server: 'puppet.dev',
           run_interval: '1d',
+          last_run_file: '/last_run_file',
         }
       end
 
@@ -55,6 +56,12 @@ describe 'profile::puppet::agent', type: :class do
           is_expected.to contain_ini_setting('puppet agent runinterval')
             .with(
               value: '1d',
+            )
+        }
+        it {
+          is_expected.to contain_ini_setting('puppet agent lastrunfile')
+            .with(
+              value: '/last_run_file',
             )
         }
       end

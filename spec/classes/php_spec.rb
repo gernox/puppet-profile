@@ -7,7 +7,7 @@ describe 'profile::php', type: :class do
 
       let(:params) do
         {
-          version: '7.0'
+          version: '7.0',
         }
       end
 

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'profile::hardening', type: :class do
+  let(:pre_condition) { "include '::profile'" }
+
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do

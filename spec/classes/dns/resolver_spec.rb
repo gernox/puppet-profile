@@ -30,8 +30,9 @@ describe 'profile::dns::resolver', type: :class do
             .with_content(%(# This file is being managed by Puppet.
 # DO NOT EDIT
 options rotate timeout:1
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 46.182.19.48
+nameserver 91.239.100.100
+nameserver 89.233.43.71
 ))
         }
       end
@@ -74,8 +75,9 @@ nameserver 1.2.3.4
             .with_content(%(# This file is being managed by Puppet.
 # DO NOT EDIT
 options ndots:2
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 46.182.19.48
+nameserver 91.239.100.100
+nameserver 89.233.43.71
 ))
         }
       end
@@ -90,8 +92,9 @@ nameserver 8.8.4.4
 # DO NOT EDIT
 search foo.example.com example.com
 options rotate timeout:1
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 46.182.19.48
+nameserver 91.239.100.100
+nameserver 89.233.43.71
 ))
         }
       end
@@ -106,8 +109,9 @@ nameserver 8.8.4.4
 # DO NOT EDIT
 domain example.com
 options rotate timeout:1
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 46.182.19.48
+nameserver 91.239.100.100
+nameserver 89.233.43.71
 ))
         }
       end
@@ -122,8 +126,9 @@ nameserver 8.8.4.4
 # DO NOT EDIT
 sortlist 10.10.10.0/24 10.10.11.0/24
 options rotate timeout:1
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 46.182.19.48
+nameserver 91.239.100.100
+nameserver 89.233.43.71
 ))
         }
       end
