@@ -5,6 +5,7 @@ class profile::backup::server (
   Hash $storages,
 ) {
   contain profile::postgresql
+  contain profile::backup::client
 
   $job_definitions = {
     'AlwaysIncremental'            => {
