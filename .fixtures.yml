@@ -37,6 +37,9 @@ fixtures:
     firewall:
       repo: 'https://github.com/puppetlabs/puppetlabs-firewall.git'
       ref: 'v2.3.0'
+    gernox_bareos:
+      repo: 'https://github.com/gernox/puppet-bareos.git'
+      ref: 'origin/production'
     git:
       repo: 'https://github.com/puppetlabs/puppetlabs-git.git'
       ref: '0.5.0'
