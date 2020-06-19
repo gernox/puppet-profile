@@ -92,18 +92,6 @@ class profile::backup::server (
     },
   }
 
-  $storages = {
-    'File' => {
-      address        => '10.7.100.2',
-      password       => 'pwd3',
-      device         => [
-        'FileStorage-0'
-      ],
-      media_type     => 'File',
-      tls_allowed_cn => 'auth.gernox.de',
-    }
-  }
-
   $pools = {
     'AI-Incremental'  => {
       pool_type            => 'Backup',
