@@ -24,6 +24,9 @@ fixtures:
     augeasproviders_core:
       repo: 'https://github.com/hercules-team/augeasproviders_core'
       ref: '2.6.0'
+    bareos:
+      repo: 'https://github.com/Project0/puppet-bareos.git'
+      ref: '973928680d7ab720c873fcdc1d4c950299fdff91'
     concat:
       repo: 'https://github.com/puppetlabs/puppetlabs-concat.git'
       ref: 'v6.2.0'
