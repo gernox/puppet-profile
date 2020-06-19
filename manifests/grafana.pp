@@ -39,7 +39,7 @@ class profile::grafana (
   }
 
   class { '::grafana':
-    cfg => {
+    cfg     => {
       app_mode  => 'production',
       server    => {
         http_port => $http_port,
@@ -66,6 +66,7 @@ class profile::grafana (
         reporting_enables => false,
       },
     },
+    require => Profile::Postgresql::Db[$db_name],
   }
 
   $grafana_url = "http://localhost:${http_port}"
