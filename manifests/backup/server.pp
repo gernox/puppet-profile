@@ -85,7 +85,7 @@ class profile::backup::server (
       description => 'Standard Restore template. Only one such job is needed for all standard Jobs/Clients/Storage ...',
       type        => 'restore',
       file_set    => 'LinuxAll',
-      storage     => 'auth.gernox.de',
+      # storage     => 'auth.gernox.de',
       pool        => 'Incremental',
       messages    => 'Standard',
       where       => '/tmp/bareos-restores',
