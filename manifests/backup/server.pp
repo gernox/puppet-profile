@@ -128,35 +128,35 @@ class profile::backup::server (
       volume_retention     => '180 days',
       maximum_volumes      => 100,
     },
-    # 'Differential'   => {
-    #   pool_type            => 'Backup',
-    #   recycle              => true,
-    #   auto_prune           => true,
-    #   volume_retention     => '90 days',
-    #   maximum_volume_bytes => '10G',
-    #   maximum_volumes      => 200,
-    #   label_format         => 'Differential-',
-    # },
-    #
-    # 'Full'           => {
-    #   pool_type            => 'Backup',
-    #   recycle              => true,
-    #   auto_prune           => true,
-    #   volume_retention     => '365 days',
-    #   maximum_volume_bytes => '50G',
-    #   maximum_volumes      => 200,
-    #   label_format         => 'Full-',
-    # },
-    #
-    # 'Incremental'    => {
-    #   pool_type            => 'Backup',
-    #   recycle              => true,
-    #   auto_prune           => true,
-    #   volume_retention     => '30 days',
-    #   maximum_volume_bytes => '5G',
-    #   maximum_volumes      => 200,
-    #   label_format         => 'Incremental-',
-    # },
+    'Differential'   => {
+      pool_type            => 'Backup',
+      recycle              => true,
+      auto_prune           => true,
+      volume_retention     => '90 days',
+      maximum_volume_bytes => '10G',
+      maximum_volumes      => 200,
+      label_format         => 'Differential-',
+    },
+
+    'Full'           => {
+      pool_type            => 'Backup',
+      recycle              => true,
+      auto_prune           => true,
+      volume_retention     => '365 days',
+      maximum_volume_bytes => '50G',
+      maximum_volumes      => 200,
+      label_format         => 'Full-',
+    },
+
+    'Incremental'    => {
+      pool_type            => 'Backup',
+      recycle              => true,
+      auto_prune           => true,
+      volume_retention     => '30 days',
+      maximum_volume_bytes => '5G',
+      maximum_volumes      => 200,
+      label_format         => 'Incremental-',
+    },
     'Scratch'         => {
       pool_type => 'Scratch',
     }
