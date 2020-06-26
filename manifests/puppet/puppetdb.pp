@@ -23,7 +23,7 @@ class profile::puppet::puppetdb (
   contain profile::postgresql
 
   # get the pg contrib to use pg_trgm extension
-  class { '::postgresql::server::contrib': }
+  # class { '::postgresql::server::contrib': }
 
   postgresql::server::extension { 'pg_trgm':
     database => $database_name,
