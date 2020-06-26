@@ -26,7 +26,7 @@ class profile::wireguard (
   $wireguard_peers = $peers.map |$peer| {
     {
       'PublicKey'           => $peer['parameters']['public_key'],
-      'AllowedIPs'          => "${peer['parameters']['internal_ip']}/32",
+      'AllowedIPs'          => $peer['parameters']['allowed_ips'],
       'Endpoint'            => "${peer['parameters']['primary_ip']}:51820",
       'PersistentKeepalive' => 25,
     }
