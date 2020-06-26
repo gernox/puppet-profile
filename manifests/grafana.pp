@@ -112,8 +112,8 @@ class profile::grafana (
         'X-Forwarded-Proto $scheme',
       ],
       ssl              => true,
-      ssl_cert         => '/etc/ssl/certs/gernox_de.crt',
-      ssl_key          => '/etc/ssl/private/gernox_de.key',
+      ssl_cert         => '/etc/ssl/certs/gernox_it.crt',
+      ssl_key          => '/etc/ssl/private/gernox_it.key',
     }
   }
 }
