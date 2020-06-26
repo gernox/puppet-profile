@@ -96,6 +96,13 @@ profile::ntp::restrictions:
   - '127.0.0.1'
   - '-6 ::1'
 
+profile::openvpn::server::cipher: AES-256-CBC
+profile::openvpn::server::tls_cipher: 'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384:TLS-DHE-RSA-WITH-AES-128-GCM-SHA256:TLS-DHE-RSA-WITH-AES-256-CBC-SHA:TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA:TLS-DHE-RSA-WITH-AES-128-CBC-SHA:TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA'
+profile::openvpn::server::config_dir: /etc/openvpn
+profile::openvpn::server::user: openvpn_server
+profile::openvpn::server::options:
+  auth: SHA512
+
 profile::prometheus::prometheus_version: '2.18.1'
 profile::prometheus::prometheus_alerts: {}
 profile::prometheus::prometheus_scrape_configs: []
@@ -251,6 +258,10 @@ lookup_options:
       strategy: deep
       merge_hash_arrays: true
   profile::ssh::server::authorized_keys:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+  profile::openvpn::server::options:
     merge:
       strategy: deep
       merge_hash_arrays: true

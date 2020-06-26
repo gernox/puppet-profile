@@ -82,6 +82,9 @@ fixtures:
     ohmyzsh:
       repo: 'https://github.com/rehanone/puppet-ohmyzsh.git'
       ref: '2.3.2'
+    openvpn:
+      repo: 'https://github.com/voxpupuli/puppet-openvpn.git'
+      ref: '258ac2b5834726cf2ca4df70caa3888403586a89'
     php:
       repo: 'https://github.com/voxpupuli/puppet-php.git'
       ref: 'v7.1.0'
