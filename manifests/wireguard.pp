@@ -9,6 +9,7 @@ class profile::wireguard (
   String $private_key,
   Hash $interfaces,
 
+  String $allowed_ips = "${profile::internal_ip}/32",
   String $fqdn        = $profile::fqdn,
   String $internal_ip = $profile::internal_ip,
   String $primary_ip  = $profile::primary_ip,
