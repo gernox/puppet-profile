@@ -103,6 +103,12 @@ class profile::grafana (
         $http_domain,
       ],
       listen_port      => 443,
+      location_allow   => [
+        '10.7.10.0/24',
+      ],
+      location_deny    => [
+        'all',
+      ],
       format_log       => 'anonymized',
       proxy            => "http://localhost:${http_port}/",
       proxy_set_header => [
