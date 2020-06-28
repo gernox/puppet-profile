@@ -5,17 +5,19 @@ class profile::keycloak (
   Integer $http_port,
   String $http_domain,
   String $admin_password,
+  String $db_host,
   String $db_password,
   String $keycloak_version,
   Boolean $manage_nginx = false,
 ) {
 
   class { '::gernox_keycloak':
-    http_port          => $http_port,
-    base_url           => "https://${http_domain}/auth",
-    admin_password     => $admin_password,
-    db_password        => $db_password,
-    keycloak_version   => $keycloak_version,
+    http_port        => $http_port,
+    base_url         => "https://${http_domain}/auth",
+    admin_password   => $admin_password,
+    db_host          => $db_host,
+    db_password      => $db_password,
+    keycloak_version => $keycloak_version,
   }
 
   if $manage_nginx {
