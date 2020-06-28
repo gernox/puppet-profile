@@ -20,7 +20,9 @@ class profile::postgresql (
   }
 
   class { 'postgresql::server':
-    postgres_password => $password,
+    postgres_password       => $password,
+    ip_mask_allow_all_users => '0.0.0.0/0',
+    listen_addresses        => '*',
   }
 
   $dbs.each |$k, $v| {
