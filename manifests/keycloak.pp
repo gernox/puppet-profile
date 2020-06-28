@@ -7,7 +7,6 @@ class profile::keycloak (
   String $admin_password,
   String $db_password,
   String $keycloak_version,
-  String $postgresql_version,
   Boolean $manage_nginx = false,
 ) {
 
@@ -17,7 +16,6 @@ class profile::keycloak (
     admin_password     => $admin_password,
     db_password        => $db_password,
     keycloak_version   => $keycloak_version,
-    postgresql_version => $postgresql_version,
   }
 
   if $manage_nginx {
