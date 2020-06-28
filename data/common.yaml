@@ -120,6 +120,9 @@ profile::grafana::db_name: grafana
 profile::grafana::db_port: 5432
 profile::grafana::admin_user: admin
 
+profile::keycloak::db_name: keycloak
+profile::keycloak::db_user: keycloak
+
 profile::nextcloud::version: '19.0.0'
 profile::nextcloud::archive_url: https://download.nextcloud.com/server/releases/
 profile::nextcloud::system_user: www-data

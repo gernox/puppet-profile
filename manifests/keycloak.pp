@@ -6,15 +6,25 @@ class profile::keycloak (
   String $http_domain,
   String $admin_password,
   String $db_host,
+  String $db_name,
+  String $db_user,
   String $db_password,
   String $keycloak_version,
   Boolean $manage_nginx = false,
 ) {
+  contain profile::postgresql
+
+  profile::postgresql::db { $db_name:
+    user     => $db_user,
+    password => $db_password,
+  }
 
   class { '::gernox_keycloak':
     http_port        => $http_port,
     base_url         => "https://${http_domain}/auth",
     admin_password   => $admin_password,
+    db_name          => $db_name,
+    db_user          => $db_user,
     db_host          => $db_host,
     db_password      => $db_password,
     keycloak_version => $keycloak_version,
