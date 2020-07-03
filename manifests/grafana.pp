@@ -105,6 +105,7 @@ class profile::grafana (
       listen_port      => 443,
       location_allow   => [
         '10.7.10.0/24',
+        '10.7.100.0/24',
       ],
       location_deny    => [
         'all',
