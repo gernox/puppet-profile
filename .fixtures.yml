@@ -34,6 +34,9 @@ fixtures:
       repo: "https://github.com/puppetlabs/puppetlabs-cron_core.git"
       ref: "1.0.3"
       puppet_version: ">= 6.0.0"
+    docker:
+      repo: 'https://github.com/puppetlabs/puppetlabs-docker.git'
+      ref: 'v3.10.0'
     facts:
       repo: 'https://github.com/puppetlabs/puppetlabs-facts.git'
       ref: '1.0.0'
@@ -42,6 +45,9 @@ fixtures:
       ref: 'v2.3.0'
     gernox_bareos:
       repo: 'https://github.com/gernox/puppet-bareos.git'
+      ref: 'origin/production'
+    gernox_docker:
+      repo: 'https://github.com/gernox/puppet-docker.git'
       ref: 'origin/production'
     gernox_keycloak:
       repo: 'https://github.com/gernox/puppet-keycloak.git'
