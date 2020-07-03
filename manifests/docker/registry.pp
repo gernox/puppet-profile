@@ -9,6 +9,8 @@ class profile::docker::registry (
   String $version,
   Integer $port,
 ) {
+  contain ::gernox_docker
+
   $network_name = 'registry-network'
   $bridge_name = 'br-registry'
 
