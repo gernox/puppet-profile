@@ -37,6 +37,10 @@ class profile::docker::registry::nginx (
         '' => '$docker_distribution_api_version always',
       },
     },
+    location_allow       => [
+      '10.7.10.0/24',
+      '10.7.100.0/24',
+    ],
     locations            => {
       docker_registry_v2 => {
         location           => '/v2/',
