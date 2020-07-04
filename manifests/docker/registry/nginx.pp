@@ -46,7 +46,7 @@ class profile::docker::registry::nginx (
           'X-Forwarded-Proto $scheme',
         ],
         proxy_read_timeout => '900s',
-        raw_append         => [
+        raw_prepend        => [
           'if ($http_user_agent ~ "^(docker\/1\.(3|4|5(?!\.[0-9]-dev))|Go ).*$" ) {',
           '  return 404;',
           '}',
