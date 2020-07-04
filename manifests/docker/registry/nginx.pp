@@ -15,7 +15,7 @@ class profile::docker::registry::nginx (
   nginx::resource::map { 'docker_distribution_api_version':
     string   => '$upstream_http_docker_distribution_api_version',
     mappings => [
-      { 'key' => '', 'value' => 'registry/2.0' },
+      { 'key' => "''", 'value' => "'registry/2.0'" },
     ]
   }
 
