@@ -37,16 +37,16 @@ class profile::docker::registry::nginx (
     },
     locations            => {
       docker_registry_v2 => {
-        location            => '/v2/',
-        proxy               => "http://localhost:${port}/",
-        proxy_set_header    => [
+        location           => '/v2/',
+        proxy              => "http://localhost:${port}/",
+        proxy_set_header   => [
           'Host $http_host',
           'X-Real-IP $remote_addr',
           'X-Forwarded-For $proxy_add_x_forwarded_for',
           'X-Forwarded-Proto $scheme',
         ],
-        proxy_read_timeout  => 900,
-        location_raw_append => [
+        proxy_read_timeout => '900s',
+        raw_append         => [
           'if ($http_user_agent ~ "^(docker\/1\.(3|4|5(?!\.[0-9]-dev))|Go ).*$" ) {',
           '  return 404;',
           '}',
