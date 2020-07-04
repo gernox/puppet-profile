@@ -33,7 +33,9 @@ class profile::docker::registry::nginx (
       chunked_transfer_encoding => 'on',
     },
     add_header           => {
-      'Docker-Distribution-Api-Version' => '$docker_distribution_api_version always'
+      'Docker-Distribution-Api-Version' => {
+        '' => '$docker_distribution_api_version always',
+      },
     },
     locations            => {
       docker_registry_v2 => {
