@@ -8,6 +8,7 @@
 class profile::docker::registry (
   String $version,
   Integer $port,
+  Boolean $manage_nginx = false,
 ) {
   contain ::gernox_docker
 
@@ -37,5 +38,9 @@ class profile::docker::registry (
       "${port}:5000",
     ],
     net                   => $network_name,
+  }
+
+  if $manage_nginx {
+    contain ::profile::docker::registry::nginx
   }
 }
