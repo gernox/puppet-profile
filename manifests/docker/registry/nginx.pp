@@ -29,33 +29,33 @@ class profile::docker::registry::nginx (
     ssl_cert             => '/etc/ssl/certs/gernox_it.crt',
     ssl_key              => '/etc/ssl/private/gernox_it.key',
     client_max_body_size => 0,
-    location_cfg_append  => {
-      chunked_transfer_encoding => 'on',
-    },
     add_header           => {
       'Docker-Distribution-Api-Version' => {
         '' => '$docker_distribution_api_version always',
       },
     },
-    location_allow       => [
-      '10.7.10.0/24',
-      '10.7.100.0/24',
-    ],
     locations            => {
       docker_registry_v2 => {
-        location           => '/v2/',
-        proxy              => "http://localhost:${port}/",
-        proxy_set_header   => [
+        location            => '/v2/',
+        proxy               => "http://localhost:${port}",
+        proxy_set_header    => [
           'Host $http_host',
           'X-Real-IP $remote_addr',
           'X-Forwarded-For $proxy_add_x_forwarded_for',
           'X-Forwarded-Proto $scheme',
         ],
-        proxy_read_timeout => '900s',
-        raw_prepend        => [
+        proxy_read_timeout  => '900s',
+        raw_prepend         => [
           'if ($http_user_agent ~ "^(docker\/1\.(3|4|5(?!\.[0-9]-dev))|Go ).*$" ) {',
           '  return 404;',
           '}',
+        ],
+        location_cfg_append => {
+          chunked_transfer_encoding => 'on',
+        },
+        location_allow      => [
+          '10.7.10.0/24',
+          '10.7.100.0/24',
         ],
       }
     },
