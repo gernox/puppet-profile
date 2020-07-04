@@ -30,7 +30,7 @@ class profile::docker::registry::nginx (
     ssl_key              => '/etc/ssl/private/gernox_it.key',
     client_max_body_size => 0,
     location_cfg_append  => {
-      chunked_transfer_encoding => true,
+      chunked_transfer_encoding => 'on',
     },
     add_header           => {
       'Docker-Distribution-Api-Version' => '$docker_distribution_api_version always'
