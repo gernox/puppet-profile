@@ -80,6 +80,18 @@ profile::firewall::ignore_rules:
   - '-i br-.*'
 profile::firewall::psad::notification_mail: 'root@localhost'
 
+profile::gitea::db_host: "%{hiera('profile::internal_ip')}"
+profile::gitea::db_port: 5432
+profile::gitea::db_user: gitea
+profile::gitea::db_name: gitea
+profile::gitea::network_name: gitea-network
+profile::gitea::bridge_name: br-gitea
+profile::gitea::http_port: 3000
+profile::gitea::ssh_port: 2222
+profile::gitea::user_uid: 1000
+profile::gitea::user_gid: 1000
+profile::gitea::log_level: Warn
+
 profile::mail::postfix::myorigin: '%{facts.fqdn}'
 profile::mail::postfix::mydestination: '%{facts.hostname} localhost.%{facts.domain} %{facts.fqdn}'
 profile::mail::postfix::mynetworks: '127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128'

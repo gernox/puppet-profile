@@ -1,0 +1,58 @@
+; This file is managed by Puppet
+;
+; https://docs.gitea.io/en-us/config-cheat-sheet/
+; https://github.com/go-gitea/gitea/blob/master/custom/conf/app.example.ini
+
+APP_NAME = Gitea - Git@GerNOX
+RUN_MODE = prod
+
+[database]
+DB_TYPE = postgres
+HOST    = <%= @db_host %>:<%= @db_port %>
+NAME    = <%= @db_name %>
+USER    = <%= @db_user %>
+PASSWD  = `<%= @db_password %>`
+LOG_SQL = false
+
+[repository]
+ROOT = /data/git
+
+[server]
+DOMAIN             = git.gernox.de
+ROOT_URL           = https://git.gernox.de/
+DISABLE_SSH        = false
+SSH_PORT           = <%= @ssh_port %>
+SSH_LISTEN_PORT    = 22
+SSH_DOMAIN         = git.gernox.de
+OFFLINE_MODE       = true
+LANDING_PAGE       = explore
+DISABLE_ROUTER_LOG = true
+
+[mailer]
+ENABLED = true
+HOST    = <%= @mail_host %>:<%= @mail_port %>
+FROM    = <%= @mail_user %>
+USER    = <%= @mail_user %>
+PASSWD  = <%= @mail_password %>
+
+[service]
+ENABLE_NOTIFY_MAIL   = true
+DISABLE_REGISTRATION = true
+
+[picture]
+DISABLE_GRAVATAR = true
+
+[log]
+MODE  = console
+LEVEL = <%= @log_level %>
+
+[security]
+INSTALL_LOCK   = true
+SECRET_KEY     = <%= @secret_key %>
+INTERNAL_TOKEN = <%= @internal_token %>
+
+[other]
+SHOW_FOOTER_VERSION = false
+
+[oauth2]
+JWT_SECRET = <%= @oauth2_jwt_secret %>
