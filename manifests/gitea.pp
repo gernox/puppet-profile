@@ -28,6 +28,19 @@ class profile::gitea (
   contain ::gernox_docker
   contain ::profile::postgresql
 
+  profile::tools::create_dir { "${base_dir}/data/gitea/custom/conf":
+    owner => $user_uid,
+    group => $user_gid,
+  }
+
+  file { "${base_dir}/data/gitea/custom/conf/app.ini":
+    ensure  => present,
+    content => template('profile/gitea.ini.erb'),
+    owner   => $user_uid,
+    group   => $user_gid,
+    require => Profile::Tools::Create_dir["${base_dir}/data/gitea/custom/conf"],
+  }
+
   profile::postgresql::db { $db_name:
     user     => $db_user,
     password => $db_password,
@@ -71,6 +84,7 @@ class profile::gitea (
       '/etc/localtime:/etc/localtime:ro',
     ],
     net                   => $network_name,
+    require               => File["${base_dir}/data/gitea/custom/conf/app.ini"],
   }
 
 }
