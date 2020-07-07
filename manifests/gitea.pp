@@ -47,6 +47,7 @@ class profile::gitea (
     owner   => $user,
     group   => $group,
     require => Profile::Tools::Create_dir[$gitea_conf_dir],
+    notify  => Docker::Run['gitea'],
   }
 
   profile::postgresql::db { $db_name:
