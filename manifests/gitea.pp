@@ -13,8 +13,8 @@ class profile::gitea (
   String $bridge_name,
   Integer $http_port,
   Integer $ssh_port,
-  Integer $user_uid,
-  Integer $user_gid,
+  String $user,
+  String $group,
   String $mail_host,
   Integer $mail_port,
   String $mail_user,
@@ -33,19 +33,19 @@ class profile::gitea (
   $gitea_conf_dir = "${gitea_base_dir}/custom/conf"
 
   profile::tools::create_dir { $gitea_base_dir:
-    owner => $user_uid,
-    group => $user_gid,
+    owner => $user,
+    group => $group,
   }
   -> profile::tools::create_dir { $gitea_conf_dir:
-    owner => $user_uid,
-    group => $user_gid,
+    owner => $user,
+    group => $group,
   }
 
   file { "${gitea_conf_dir}/app.ini":
     ensure  => present,
     content => template('profile/gitea.ini.erb'),
-    owner   => $user_uid,
-    group   => $user_gid,
+    owner   => $user,
+    group   => $group,
     require => Profile::Tools::Create_dir[$gitea_conf_dir],
   }
 
@@ -78,8 +78,6 @@ class profile::gitea (
       "${ssh_port}:22",
     ],
     env                   => [
-      "USER_UID=${user_uid}",
-      "USER_GID=${user_gid}",
       'GITEA_WORK_DIR=/data',
       'GITEA_CUSTOM=/data/custom',
       'USER=git',

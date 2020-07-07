@@ -88,8 +88,8 @@ profile::gitea::network_name: gitea-network
 profile::gitea::bridge_name: br-gitea
 profile::gitea::http_port: 3000
 profile::gitea::ssh_port: 2222
-profile::gitea::user_uid: 1000
-profile::gitea::user_gid: 1000
+profile::gitea::user: '1000'
+profile::gitea::group: '1000'
 profile::gitea::log_level: Warn
 
 profile::mail::postfix::myorigin: '%{facts.fqdn}'
