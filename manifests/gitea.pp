@@ -28,17 +28,24 @@ class profile::gitea (
   contain ::gernox_docker
   contain ::profile::postgresql
 
-  profile::tools::create_dir { "${base_dir}/data/gitea/custom/conf":
+  $gitea_base_dir = "${base_dir}/data/gitea"
+  $gitea_conf_dir = "${gitea_base_dir}/custom/conf"
+
+  profile::tools::create_dir { $gitea_base_dir:
+    owner => $user_uid,
+    group => $user_gid,
+  }
+  -> profile::tools::create_dir { $gitea_conf_dir:
     owner => $user_uid,
     group => $user_gid,
   }
 
-  file { "${base_dir}/data/gitea/custom/conf/app.ini":
+  file { "${gitea_conf_dir}/app.ini":
     ensure  => present,
     content => template('profile/gitea.ini.erb'),
     owner   => $user_uid,
     group   => $user_gid,
-    require => Profile::Tools::Create_dir["${base_dir}/data/gitea/custom/conf"],
+    require => Profile::Tools::Create_dir[$gitea_conf_dir],
   }
 
   profile::postgresql::db { $db_name:
@@ -79,12 +86,12 @@ class profile::gitea (
 
     ],
     volumes               => [
-      "${base_dir}/data/gitea:/data",
+      "${gitea_base_dir}:/data",
       '/etc/timezone:/etc/timezone:ro',
       '/etc/localtime:/etc/localtime:ro',
     ],
     net                   => $network_name,
-    require               => File["${base_dir}/data/gitea/custom/conf/app.ini"],
+    require               => File["${gitea_conf_dir}/app.ini"],
   }
 
 }
