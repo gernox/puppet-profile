@@ -18,10 +18,10 @@
 #   The mode of the created directory
 #
 define profile::tools::create_dir (
-  Optional[String] $path  = undef,
-  Optional[String] $owner = undef,
-  Optional[String] $group = undef,
-  Optional[String] $mode  = undef,
+  Optional[String] $path                    = undef,
+  Optional[Variant[String, Integer]] $owner = undef,
+  Optional[Variant[String, Integer]] $group = undef,
+  Optional[String] $mode                    = undef,
 ) {
 
   $_path = $path ? {
