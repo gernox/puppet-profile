@@ -18,7 +18,7 @@ describe 'profile::openvpn', type: :class do
           province: 'ST',
           city: 'Some City',
           organization: 'example.org',
-          email: 'testemail@example.org'
+          email: 'testemail@example.org',
         }
       end
 

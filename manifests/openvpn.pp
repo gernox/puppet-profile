@@ -3,7 +3,6 @@
 #
 class profile::openvpn (
   String $network,
-  Optional[String] $network_ipv6 = '',
 
   String $cipher,
   String $tls_cipher,
@@ -19,6 +18,7 @@ class profile::openvpn (
 
   Array $dhcp_options            = [],
   Array $push_options            = [],
+  Optional[String] $network_ipv6 = '',
   Optional[Array] $routes        = [],
   Optional[Array] $routes_ipv6   = [],
   Optional[Hash] $options        = {},
