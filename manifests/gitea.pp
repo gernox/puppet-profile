@@ -23,7 +23,8 @@ class profile::gitea (
   String $secret_key,
   String $internal_token,
   String $jwt_secret,
-  String $base_dir = $profile::base_dir,
+  String $base_dir      = $profile::base_dir,
+  Boolean $manage_nginx = false,
 ) {
   contain ::gernox_docker
   contain ::profile::postgresql
@@ -92,6 +93,10 @@ class profile::gitea (
     ],
     net                   => $network_name,
     require               => File["${gitea_conf_dir}/app.ini"],
+  }
+
+  if $manage_nginx {
+    contain ::profile::gitea::nginx
   }
 
 }
