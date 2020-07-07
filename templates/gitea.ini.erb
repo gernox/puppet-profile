@@ -11,7 +11,7 @@ DB_TYPE = postgres
 HOST    = <%= @db_host %>:<%= @db_port %>
 NAME    = <%= @db_name %>
 USER    = <%= @db_user %>
-PASSWD  = `<%= @db_password %>`
+PASSWD  = <%= @db_password %>
 LOG_SQL = false
 
 [repository]
