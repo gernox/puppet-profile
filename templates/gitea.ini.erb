@@ -37,7 +37,9 @@ PASSWD  = <%= @mail_password %>
 
 [service]
 ENABLE_NOTIFY_MAIL   = true
-DISABLE_REGISTRATION = true
+DISABLE_REGISTRATION = false
+SHOW_REGISTRATION_BUTTON = false
+ALLOW_ONLY_EXTERNAL_REGISTRATION = true
 
 [picture]
 DISABLE_GRAVATAR = true
@@ -58,5 +60,5 @@ SHOW_FOOTER_VERSION = false
 JWT_SECRET = <%= @jwt_secret %>
 
 [openid]
-ENABLE_OPENID_SIGNIN = true
+ENABLE_OPENID_SIGNIN = false
 ENABLE_OPENID_SIGNUP = true
