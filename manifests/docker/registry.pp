@@ -35,7 +35,7 @@ class profile::docker::registry (
     image                 => "registry:${version}",
     health_check_interval => 30,
     ports                 => [
-      "${port}:5000",
+      "127.0.0.1:${port}:5000",
     ],
     net                   => $network_name,
   }

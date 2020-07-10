@@ -75,7 +75,7 @@ class profile::gitea (
     image                 => "gitea/gitea:${version}",
     health_check_interval => 30,
     ports                 => [
-      "${http_port}:3000",
+      "127.0.0.1:${http_port}:3000",
       "${ssh_port}:22",
     ],
     env                   => [
