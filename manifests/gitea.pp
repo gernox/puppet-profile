@@ -31,12 +31,17 @@ class profile::gitea (
 
   $gitea_base_dir = "${base_dir}/data/gitea"
   $gitea_conf_dir = "${gitea_base_dir}/custom/conf"
+  $gitea_backup_dir = "${gitea_base_dir}/backup"
 
   profile::tools::create_dir { $gitea_base_dir:
     owner => $user,
     group => $group,
   }
   -> profile::tools::create_dir { $gitea_conf_dir:
+    owner => $user,
+    group => $group,
+  }
+  -> profile::tools::create_dir { $gitea_backup_dir:
     owner => $user,
     group => $group,
   }
@@ -96,6 +101,30 @@ class profile::gitea (
 
   if $manage_nginx {
     contain ::profile::gitea::nginx
+  }
+
+  # Job for backup
+  file { '/etc/systemd/system/gitea-backup.service':
+    ensure  => present,
+    content => template('profile/gitea/gitea-backup.service.erb'),
+    notify  => Service['gitea-backup'],
+  }
+
+  file { '/etc/systemd/system/gitea-backup.timer':
+    ensure  => present,
+    content => template('profile/gitea/gitea-backup.timer.erb'),
+    notify  => Service['gitea-backup'],
+  }
+
+  service { 'gitea-backup':
+    ensure   => running,
+    enable   => true,
+    name     => 'gitea-backup.timer',
+    provider => 'systemd',
+    require  => [
+      File['/etc/systemd/system/gitea-backup.timer'],
+      File['/etc/systemd/system/gitea-backup.service'],
+    ],
   }
 
 }

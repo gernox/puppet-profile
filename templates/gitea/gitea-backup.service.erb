@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup gitea
+Requires=docker-gitea.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker exec -it -w /data/backup  gitea bash -c '/app/gitea/gitea dump -c /data/custom/conf/app.ini'
+
+[Install]
+WantedBy=network.target
