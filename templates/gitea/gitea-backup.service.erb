@@ -4,7 +4,8 @@ Requires=docker-gitea.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/docker exec -it -w /data/backup  gitea bash -c '/app/gitea/gitea dump -c /data/custom/conf/app.ini'
+ExecStartPre=find <%= @gitea_backup_dir %> -type f -mtime +30 -exec rm -f {} \;
+ExecStart=/usr/bin/docker exec -i -w /data/backup  gitea bash -c '/app/gitea/gitea dump -c /data/custom/conf/app.ini'
 
 [Install]
 WantedBy=network.target
