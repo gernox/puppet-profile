@@ -29,7 +29,7 @@ class profile::drone::runner (
     action  => 'accept',
   }
 
-  ::docker::run { 'drone':
+  ::docker::run { 'drone-runner':
     image                 => "drone/drone-runner-docker:${version}",
     health_check_interval => 30,
     env                   => [
