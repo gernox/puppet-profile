@@ -33,7 +33,7 @@ class profile::drone::runner (
     image                 => "drone/drone-runner-docker:${version}",
     health_check_interval => 30,
     env                   => [
-      "DRONE_RPC_PROTO=https",
+      'DRONE_RPC_PROTO=https',
       "DRONE_RPC_HOST=${rpc_host}",
       "DRONE_RPC_SECRET=${rpc_secret}",
       "DRONE_RUNNER_CAPACITY=${capacity}",
