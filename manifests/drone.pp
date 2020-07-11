@@ -70,7 +70,7 @@ class profile::drone (
       '/var/run/docker.sock:/var/run/docker.sock',
     ],
     net                   => $network_name,
-    require               => File[$drone_base_dir],
+    require               => Profile::Tools::Create_dir[$drone_base_dir],
   }
 
   if $manage_nginx {
