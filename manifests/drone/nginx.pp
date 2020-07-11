@@ -6,9 +6,8 @@
 # @param http_port
 #
 class profile::drone::nginx (
-  String $http_domain,
-
-  Integer $http_port = $profile::drone::http_port,
+  String $http_domain = $profile::drone::nginx::http_domain,
+  Integer $http_port  = $profile::drone::http_port,
 ) {
   contain profile::nginx
 
