@@ -14,7 +14,6 @@ class profile::hosting::blog (
     server_name         => [
       'haase.dev',
     ],
-    ipv6_enable         => true,
     listen_port         => 443,
     ssl                 => true,
     ssl_cert            => '/etc/ssl/certs/haase_dev.crt',
