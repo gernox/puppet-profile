@@ -80,6 +80,14 @@ profile::firewall::ignore_rules:
   - '-i br-.*'
 profile::firewall::psad::notification_mail: 'root@localhost'
 
+profile::drone::db_host: "%{hiera('profile::internal_ip')}"
+profile::drone::db_port: 5432
+profile::drone::db_user: drone
+profile::drone::db_name: drone
+profile::drone::network_name: drone-network
+profile::drone::bridge_name: br-drone
+profile::drone::http_port: 3001
+
 profile::gitea::db_host: "%{hiera('profile::internal_ip')}"
 profile::gitea::db_port: 5432
 profile::gitea::db_user: gitea
