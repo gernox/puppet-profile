@@ -30,6 +30,7 @@ class profile::hosting::blog (
     server_name         => [
       'blog.haase.dev',
     ],
+    http2               => 'on',
     listen_port         => 443,
     format_log          => 'anonymized',
     ssl                 => true,
