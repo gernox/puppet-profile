@@ -28,6 +28,18 @@ class profile::nginx (
     ssl_session_tickets       => 'off',
     server_tokens             => 'off',
     snippets_dir              => $snippets_dir,
+    http2                     => 'on',
+    gzip                      => 'on',
+    gzip_vary                 => 'on',
+    gzip_types                => [
+      'text/plain',
+      'text/css',
+      'text/xml',
+      'text/javascript',
+      'application/x-javascript',
+      'application/javascript',
+      'application/xml',
+    ],
     http_raw_append           => [
       'resolver_timeout 10s;',
       "include ${snippets_dir}/anonymized_log_format.conf;",
