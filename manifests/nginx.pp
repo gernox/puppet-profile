@@ -11,6 +11,12 @@ class profile::nginx (
 ) {
   $snippets_dir = '/etc/nginx/snippets'
 
+  file { '/var/nginx':
+    ensure => 'directory',
+    group  => 'root',
+    mode   => '0644',
+  }
+
   class { '::nginx':
     confd_purge               => true,
     server_purge              => true,
@@ -43,7 +49,10 @@ class profile::nginx (
     http_raw_append           => [
       'resolver_timeout 10s;',
       "include ${snippets_dir}/anonymized_log_format.conf;",
-    ]
+    ],
+    client_body_temp_path     => '/var/nginx/client_body_temp',
+    proxy_temp_path           => '/var/nginx/proxy_temp',
+    require                   => File['/var/nginx'],
   }
 
   file { '/etc/nginx/dhparam.pem':
