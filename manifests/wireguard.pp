@@ -9,10 +9,10 @@ class profile::wireguard (
   String $private_key,
   Hash $interfaces,
 
-  String $allowed_ips = "${profile::internal_ip}/32",
-  String $fqdn        = $profile::fqdn,
-  String $internal_ip = $profile::internal_ip,
-  String $primary_ip  = $profile::primary_ip,
+  String $allowed_ips      = "${profile::internal_ip}/32",
+  String $fqdn             = $profile::fqdn,
+  String $internal_ip      = $profile::internal_ip,
+  String $primary_ip       = $profile::primary_ip,
 
   Optional[String] $parent = undef,
 ) {
@@ -46,5 +46,11 @@ class profile::wireguard (
   class { '::wireguard':
     interfaces => $interfaces,
     require    => Profile::Package['linux-headers-generic'],
+  }
+
+  firewall { '110 IPv4 allow Wireguard access':
+    dport  => '51820',
+    proto  => 'udp',
+    action => 'accept',
   }
 }
