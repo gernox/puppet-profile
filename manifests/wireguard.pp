@@ -13,6 +13,8 @@ class profile::wireguard (
   String $fqdn        = $profile::fqdn,
   String $internal_ip = $profile::internal_ip,
   String $primary_ip  = $profile::primary_ip,
+
+  Optional[String] $parent = undef,
 ) {
 
   # Ignore puppetdb during bootstrap
