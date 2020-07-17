@@ -1,0 +1,12 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ peer info: .+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ WARNING: '(link\-mtu|cipher|keysize)' is used inconsistently, .+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ WARNING: Bad encapsulated packet length from peer .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ Inactivity timeout \(\-\-ping\-restart\), restarting$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: TCP connection established with .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .* Peer Connection Initiated with .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .*MULTI_sva: pool returned IPv4=[[:digit:].]+, IPv6=([[:alnum:]:]+|\(Not enabled\))$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: [_\/[:alnum:].:]+ Connection reset, restarting \[[[:digit:]-]+\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS Error: cannot locate HMAC in incoming packet from .+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS Error: unknown opcode received from \[AF_INET\][[:digit:]:.]+ op=0$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS Error: (TLS key negotiation failed to occur within 60 seconds \(check your network connectivity\)$|TLS handshake failed)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ Fatal TLS error \(check_tls_errors_co\), restarting$
