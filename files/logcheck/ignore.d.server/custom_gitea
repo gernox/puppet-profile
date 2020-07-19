@@ -1,3 +1,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: Accepted publickey for git from .*$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: (Received disconnect from|Disconnected from|Invalid user) .*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: (Received disconnect from|Disconnected from|Invalid user|Connection closed by) .*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: kex_exchange_identification: (banner line contains invalid characters|Connection closed by remote host|read: Connection reset by peer)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: .+user does not exist.+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: User [[:alnum:]]+ not allowed because account is locked$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker\[[[:digit:]]+\]: .*newGit\(\).*$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker\[[[:digit:]]+\]: .*built with GNU Make.*$
