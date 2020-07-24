@@ -10,3 +10,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS Error: unknown opcode received from \[AF_INET\][[:digit:]:.]+ op=0$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS Error: (TLS key negotiation failed to occur within 60 seconds \(check your network connectivity\)$|TLS handshake failed)
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ Fatal TLS error \(check_tls_errors_co\), restarting$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ ovpn\-gernox_internal\[[[:digit:]]+\]: .+ TLS ERROR: initial packet local\/remote key_method mismatch, local key_method=[0-9], op=P_CONTROL_HARD_RESET_CLIENT_V1$
