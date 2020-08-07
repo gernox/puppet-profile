@@ -12,16 +12,17 @@ class profile::minio::nginx (
   contain profile::nginx
 
   nginx::resource::server { 'minio':
-    server_name      => [
+    server_name          => [
       $http_domain,
     ],
-    listen_port      => 443,
-    format_log       => 'anonymized',
-    ssl              => true,
-    ssl_cert         => '/etc/ssl/certs/gernox_de.crt',
-    ssl_key          => '/etc/ssl/private/gernox_de.key',
-    proxy            => "http://localhost:${http_port}",
-    proxy_set_header => [
+    listen_port          => 443,
+    format_log           => 'anonymized',
+    ssl                  => true,
+    ssl_cert             => '/etc/ssl/certs/gernox_de.crt',
+    ssl_key              => '/etc/ssl/private/gernox_de.key',
+    client_max_body_size => '4G',
+    proxy                => "http://localhost:${http_port}",
+    proxy_set_header     => [
       'Host $http_host',
       'X-Real-IP $remote_addr',
       'X-Forwarded-For $proxy_add_x_forwarded_for',
