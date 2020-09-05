@@ -46,11 +46,28 @@ class profile::mail::postfix (
       'smtp_sasl_password_maps': value => "hash:${sasl_passwd_path}";
       'smtp_use_tls': value => 'yes';
       'smtp_tls_CAfile': value => '/etc/ssl/certs/ca-certificates.crt';
+      'sender_canonical_classes': value => 'envelope_sender, header_sender';
+      'sender_canonical_maps': value => 'regexp:/etc/postfix/sender_canonical_maps';
+      'smtp_header_checks': value => 'regexp:/etc/postfix/header_check';
     }
 
     postfix::hash { $sasl_passwd_path:
       ensure  => 'present',
       content => "${relay_host} ${relay_username}:${relay_password}",
+    }
+
+    postfix::conffile { 'header_check':
+      content => @("EOT")
+        # This file is managed by Puppet. DO NOT EDIT.
+        /From:.*/ REPLACE From: ${relay_username}
+        |EOT
+    }
+
+    postfix::conffile { 'sender_canonical_map':
+      content => @("EOT")
+        # This file is managed by Puppet. DO NOT EDIT.
+        /.+/    ${relay_username}
+        |EOT
     }
 
     package { 'libsasl2-modules':
