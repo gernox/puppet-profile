@@ -31,9 +31,12 @@ class profile::mail::postfix (
   class { '::postfix':
     root_mail_recipient => $root_recipient,
     myorigin            => $myorigin,
-    mydestination       => $mydestination,
-    mynetworks          => $mynetworks,
     smtp_listen         => $smtp_listen,
+  }
+
+  postfix::config {
+    'mydestination': value => $mydestination;
+    'mynetworks': value => $mynetworks;
   }
 
   if $relay_host != undef {
