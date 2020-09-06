@@ -66,7 +66,7 @@ class profile::mail::postfix (
         |EOT
     }
 
-    postfix::conffile { 'sender_canonical_map':
+    postfix::conffile { 'sender_canonical_maps':
       content => @("EOT")
         # This file is managed by Puppet. DO NOT EDIT.
         /.+/    ${relay_username}
