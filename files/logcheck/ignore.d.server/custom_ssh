@@ -50,7 +50,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting: Change of username or service not allowed: \([[:alnum:]]+,ssh-connection\) -> \([[:alnum:]]+,ssh-connection\) \[preauth\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting: Change of username or service not allowed: \([-;![:alnum:]]*,ssh-connection\) -> \([-;![:alnum:]]*,[-;![:alnum:]]+\)? \[preauth\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting invalid user [[:alnum:]]+ [[:alnum:].:]+ port [[:digit:]]+: Change of username or service not allowed: \([[:alnum:]]+,ssh-connection\) -> \([[:alnum:]]+,ssh-connection\) \[preauth\]$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting (authenticating|invalid) user [[:alnum:]]+ [[:alnum:].:]+ port [[:digit:]]+: (Too many authentication failures|Change of username or service not allowed: \([[:alnum:]]+,[[:alnum:]-]+\) -> \([[:alnum:]]?,[[:alnum:]-]+\)) \[preauth\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting (authenticating|invalid) user [[:alnum:]]+ [[:alnum:].:]+ port [[:digit:]]+: (Too many authentication failures|Change of username or service not allowed: \([[:alnum:]]+,[[:alnum:]-]+\) -> \([[:alnum:]]+?,[[:alnum:]-]+\)) \[preauth\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: invalid public DH value: <= 1 \[preauth\]$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: Received disconnect from [[:alnum:]\.:]+: 11: ok \[preauth\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Timeout, client not responding\.$
