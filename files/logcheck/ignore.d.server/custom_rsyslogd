@@ -4,3 +4,5 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ liblogging-stdlog:.*rsyslogd was HUPed$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd:.*rsyslogd was HUPed$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ [._[:alnum:]-]+ [ :[:digit:]]{11} liblogging-stdlog: .+HUPed
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd:  \[origin software="rsyslogd" swVersion="[.[:digit:]]+" x-pid="[[:digit:]]+" x-info="http:\/\/www\.rsyslog\.com"\] (exiting on signal 15\.|start)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ rsyslogd: imuxsock: Acquired UNIX socket '\/run\/systemd\/journal\/syslog' \(fd 3\) from systemd\..*$
