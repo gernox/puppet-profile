@@ -2,6 +2,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: [[:digit:]\-]+ [[:digit:]\:]+,[[:digit:]\:]+ DEBG 'nginx' stderr output:
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: .+ Latency .+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: [dD]eleted.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: untagged.+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: Total reclaimed.+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+: .+ "HEAD .+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-puppetdb.+: .+ INFO .+
