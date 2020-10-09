@@ -5,11 +5,13 @@ profile::blacklist_kernel_modules:
     ensure: present
 profile::sysctl_entries: {}
 profile::packages:
-  software-properties-common: {}
+  apport:
+    ensure: absent
   apt-transport-https: {}
   linux-headers-generic: {}
   pkg-config: {}
   postgresql-client: {}
+  software-properties-common: {}
   unzip: {}
 
 profile::hosts:
