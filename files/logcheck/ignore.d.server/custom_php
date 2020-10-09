@@ -1,0 +1,1 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ php-imagick: php_invoke imagick: already enabled for PHP [.[:digit:]]+ cli sapi$

@@ -19,3 +19,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] perf: interrupt took too long \([[:digit:]]+ > [[:digit:]]+\), lowering kernel\.perf_event_max_sample_rate to [[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] conntrack: generic helper won't handle protocol 47\. Please consider loading the specific helper module\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] audit: type=[0-9]+ audit\(.+\): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="\/usr\/sbin\/ntpd" pid=[0-9]+ comm="apparmor_parser"$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] audit: type=[0-9]+ audit\(.+\): apparmor="DENIED" operation="open" profile="\/usr\/sbin\/ntpd" name="\/snap\/bin\/" pid=[0-9]+ comm="ntpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0$
