@@ -19,3 +19,8 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] perf: interrupt took too long \([[:digit:]]+ > [[:digit:]]+\), lowering kernel\.perf_event_max_sample_rate to [[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] conntrack: generic helper won't handle protocol 47\. Please consider loading the specific helper module\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] audit: type=[0-9]+ audit\(.+\): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="\/usr\/sbin\/ntpd" pid=[0-9]+ comm="apparmor_parser"$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ os-prober: debug: [\/a-z0-9]+: (is active|part of) .+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ os-prober: debug: running \/usr\/lib\/os-probes\/(mounted\/)?[-0-9a-z]+ on( mounted)? [\/a-z0-9]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ 50mounted-tests: debug: [\/a-z0-9]+ type not recognised; skipping$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ os-prober: debug: os detected by \/usr\/lib\/os-probes\/[-0-9a-z]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ 05efi: debug: Not on UEFI platform$

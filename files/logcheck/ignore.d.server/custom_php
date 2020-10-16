@@ -1,0 +1,1 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ php7\.2-[[:alnum:]]+: php_invoke [[:alnum:]]+: already enabled for PHP 7\.2 cli sapi$

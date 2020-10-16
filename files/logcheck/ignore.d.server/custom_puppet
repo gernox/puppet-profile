@@ -12,3 +12,4 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]:    \(file. \/etc\/puppetlabs\/code\/environments\/production\/modules\/openvpn\/manifests\/ca\.pp, line: 65\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]:    \(location: \/opt\/puppetlabs\/puppet\/lib\/ruby\/vendor_ruby\/puppet\/ssl\/host\.rb:235:in `initialize'\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(\/File\[[\.\/_[:alnum:]-]+\]\/ensure\) defined content as '{md5}[[:alnum:]]+'$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ puppet-agent\[[0-9]+\]: \(\/Stage\[main\]\/Openvpn\/Openvpn::Server\[[_[:alnum:]]+\]\/Exec\[renew crl\.pem on [_[:alnum:]]+\]\/returns\) executed successfully \(corrective\)$
