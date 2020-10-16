@@ -3,6 +3,8 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: restrict (default:|:::) KOD does nothing without LIMITED\.$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: proto: precision = .+$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: Command line: \/usr\/sbin\/ntpd \-p \/var\/run\/ntpd\.pid .+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: Command line: \/usr\/sbin\/ntpd \-p \/var\/run\/ntpd\.pid \-g \-u 110:116$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: Command line: \/usr\/sbin\/ntpd \-p \/var\/run\/ntpd\.pid \-g \-c \/run\/ntp\.conf\.dhcp \-u 114:118$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: ntpd .+: Starting$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: ntpd exiting on signal 15 \(Terminated\)$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ ntpd[[0-9]+]: .+ local addr .+ \-> <null>$
