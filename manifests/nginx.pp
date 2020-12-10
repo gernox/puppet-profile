@@ -18,6 +18,7 @@ class profile::nginx (
   }
 
   class { '::nginx':
+    manage_repo               => false,
     confd_purge               => true,
     server_purge              => true,
     http_access_log           => 'off',
@@ -53,6 +54,17 @@ class profile::nginx (
     client_body_temp_path     => '/var/nginx/client_body_temp',
     proxy_temp_path           => '/var/nginx/proxy_temp',
     require                   => File['/var/nginx'],
+  }
+
+  # Workaround for `apt update` error:
+  # Skipping acquire of configured file 'nginx/binary-i386/Packages' as repository
+  # 'https://nginx.org/packages/ubuntu bionic InRelease' doesn't support architecture 'i386'
+  $distro = downcase($facts['os']['name'])
+  apt::source { 'nginx':
+    location     => "https://nginx.org/packages/${distro}",
+    repos        => 'nginx',
+    architecture => 'amd64',
+    key          => { 'id' => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62' },
   }
 
   file { '/etc/nginx/dhparam.pem':
