@@ -90,6 +90,7 @@ class profile::firewall::pre_ipv6 (
     provider => 'ip6tables',
   }
   -> firewall { '006 - IPv6: enable logging':
+    ensure     => absent,
     chain      => 'INPUT',
     proto      => 'all',
     jump       => 'LOG',

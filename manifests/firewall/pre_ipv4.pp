@@ -84,6 +84,7 @@ class profile::firewall::pre_ipv4 (
     action => 'drop',
   }
   -> firewall { '006 - IPv4: enable logging':
+    ensure     => absent,
     chain      => 'INPUT',
     proto      => 'all',
     jump       => 'LOG',
