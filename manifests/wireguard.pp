@@ -48,6 +48,10 @@ class profile::wireguard (
     require    => Profile::Package['linux-headers-generic'],
   }
 
+  apt::ppa { 'ppa:wireguard/wireguard':
+    ensure => absent,
+  }
+
   firewall { '110 IPv4 allow Wireguard access':
     dport  => '51820',
     proto  => 'udp',
