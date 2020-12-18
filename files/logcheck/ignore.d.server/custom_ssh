@@ -82,3 +82,4 @@
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: Invalid user (\\\\|!|=|[ -_.[:alnum:]])* from [.[:alnum:]-]+$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: User (\\\\|!|=|[ -_.[:alnum:]])* not allowed because account is locked$
 ^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: Bad packet length [[:digit:]]+. \[preauth\]$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: Connection reset by invalid user.+$

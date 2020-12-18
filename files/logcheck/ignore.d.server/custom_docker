@@ -11,3 +11,5 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-piwik.+ already loaded
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker.+ pull after error.+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dockerd.+"NetworkDB stats.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dockerd.+"Error getting swarm: This node is not a swarm manager.+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker\[[[:digit:]]+\]: WARNING: Error loading config file: \.dockercfg: \$HOME is not defined$
