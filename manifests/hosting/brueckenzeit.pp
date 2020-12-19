@@ -25,7 +25,7 @@ class profile::hosting::brueckenzeit {
 
   nginx::resource::server { 'brueckenzeit-de-redirect':
     server_name         => [
-      'www.brueckenzeit.de',
+      '*.brueckenzeit.de',
     ],
     listen_port         => 443,
     ssl                 => true,
