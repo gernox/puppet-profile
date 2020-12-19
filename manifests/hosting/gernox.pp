@@ -52,7 +52,7 @@ class profile::hosting::gernox {
     error_log           => 'absent',
     index_files         => [],
     location_cfg_append => {
-      rewrite => '^ https://gernox.it permanent',
+      rewrite => '^ https://gernox.de permanent',
     },
   }
 }
