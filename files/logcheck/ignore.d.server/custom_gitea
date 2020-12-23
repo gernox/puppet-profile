@@ -6,5 +6,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: User [[:alnum:]]+ not allowed because account is locked$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]:.*Unsupported cached value type: <nil>.*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: Could not load host certificate "\/data\/ssh\/.*": No such file or directory$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker-gitea\[[[:digit:]]+\]: Unable to negotiate with .* port [[:digit:]]+: no matching key exchange method found\. Their offer: .*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker\[[[:digit:]]+\]: .*newGit\(\).*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ docker\[[[:digit:]]+\]: .*built with GNU Make.*$
