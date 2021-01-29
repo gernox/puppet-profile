@@ -4,9 +4,8 @@
 class profile::hosting::laravel_playground {
   contain ::gernox_docker
 
-  ::docker::stack { 'laravel_playground':
+  docker_compose { 'laravel_playground':
     ensure        => present,
-    stack_name    => 'laravel_playground',
     compose_files => ['/tmp/docker-compose.yaml'],
   }
 }
