@@ -7,6 +7,5 @@ class profile::hosting::laravel_playground {
   docker_compose { 'laravel_playground':
     ensure        => present,
     compose_files => ['/tmp/docker-compose.yaml'],
-    options       => ['--env-file /tmp/docker-compose.env'],
   }
 }
