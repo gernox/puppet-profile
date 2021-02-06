@@ -166,6 +166,7 @@ profile::nextcloud::admin_login: admin
 profile::nextcloud::coturn::port: 3478
 
 profile::php::version: '7.2'
+profile::php::manage_repos: false
 profile::php::fpm_pools:
   www:
     catch_workers_output: no
