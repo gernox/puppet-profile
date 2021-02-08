@@ -28,11 +28,11 @@ define profile::ssh::keyscan (
     command => "/usr/bin/ssh-keyscan -p ${port} ${host} >> ${_known_hosts_path}",
     user    => $user,
     unless  => "/bin/grep ${host}:${port} ${_known_hosts_path}",
-    require => Profile::Tools::Create_dir[$_known_hosts_path],
+    require => Profile::Tools::Create_dir[$known_hosts_dir],
   }
 
-  if !defined(Profile::Tools::Create_dir[$_known_hosts_path]) {
-    profile::tools::create_dir { $_known_hosts_path:
+  if !defined(Profile::Tools::Create_dir[$known_hosts_dir]) {
+    profile::tools::create_dir { $known_hosts_dir:
       owner => $user,
     }
   }
