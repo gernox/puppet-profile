@@ -10,6 +10,7 @@
 define profile::ssh::keyscan (
   String $user                                     = 'root',
   String $host                                     = $title,
+  Integer $port                                    = 22,
 
   Optional[Stdlib::AbsolutePath] $known_hosts_path = undef,
 ) {
@@ -24,9 +25,9 @@ define profile::ssh::keyscan (
   $known_hosts_dir = dirname($_known_hosts_path)
 
   exec { "ssh-keyscan-${title}":
-    command => "/usr/bin/ssh-keyscan ${host} >> ${_known_hosts_path}",
+    command => "/usr/bin/ssh-keyscan -p ${port} ${host} >> ${_known_hosts_path}",
     user    => $user,
-    unless  => "/bin/grep ${host} ${_known_hosts_path}",
+    unless  => "/bin/grep ${host}:${port} ${_known_hosts_path}",
     require => Profile::Tools::Create_dir[$_known_hosts_path],
   }
 

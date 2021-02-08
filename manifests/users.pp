@@ -130,7 +130,7 @@ class profile::users (
 
       if has_key($rv, 'openssh_keygen') {
         $rv['openssh_keygen'].each |$u, $vv| {
-          profile::openssh::keygen { $u:
+          profile::ssh::keygen { $u:
             * => $vv,
           }
         }
