@@ -25,3 +25,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ os-prober: debug: os detected by \/usr\/lib\/os-probes\/[-0-9a-z]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ 05efi: debug: Not on UEFI platform$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel: \[[ [:alnum:]\.]+\] audit: type=[0-9]+ audit\(.+\): apparmor="DENIED" operation="open" profile="\/usr\/sbin\/ntpd" name="\/snap\/bin\/" pid=[0-9]+ comm="ntpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ [[:alnum:]-]+: debug: [\/[:alnum:]]+ is not a[n]? [[:alnum:]+]+ partition: exiting$
