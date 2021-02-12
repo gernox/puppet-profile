@@ -54,6 +54,11 @@ class profile::firewall::pre_ipv6 (
     ignore => $ignore_rules,
   }
 
+  firewallchain { 'LOGGING:filter:IPv6':
+    ensure => present,
+    purge  => true,
+  }
+
   # Sane Default Rules that are always applied first
   firewall { '000 - IPv6: accept all ICMPv6':
     proto  => 'ipv6-icmp',
@@ -96,5 +101,19 @@ class profile::firewall::pre_ipv6 (
     jump       => 'LOG',
     log_prefix => 'iptables: ',
     provider   => 'ip6tables',
+  }
+  -> firewall { '100 - IPv6: log all packages':
+    chain      => 'LOGGING',
+    jump       => 'LOG',
+    log_prefix => 'IPTables-Dropped: ',
+    log_level  => '4',
+    provider   => 'ip6tables',
+  }
+  -> firewall { '101 - IPv6: drop all received packages':
+    chain    => 'LOGGING',
+    proto    => 'all',
+    action   => 'drop',
+    provider => 'ip6tables',
+    before   => undef,
   }
 }

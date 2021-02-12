@@ -54,6 +54,11 @@ class profile::firewall::pre_ipv4 (
     ignore => $ignore_rules,
   }
 
+  firewallchain { 'LOGGING:filter:IPv4':
+    ensure => present,
+    purge  => true,
+  }
+
   # Sane Default Rules that are always applied first
   firewall { '000 - IPv4: accept all ICMP':
     proto  => 'icmp',
@@ -89,5 +94,18 @@ class profile::firewall::pre_ipv4 (
     proto      => 'all',
     jump       => 'LOG',
     log_prefix => 'iptables: ',
+  }
+  -> firewall { '100 - IPv4: log all packages':
+    chain      => 'LOGGING',
+    jump       => 'LOG',
+    proto      => 'all',
+    log_prefix => 'IPTables-Dropped: ',
+    log_level  => '4',
+  }
+  -> firewall { '101 - IPv4:  drop all received packages':
+    chain  => 'LOGGING',
+    proto  => 'all',
+    action => 'drop',
+    before => undef,
   }
 }
