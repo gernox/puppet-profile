@@ -7,17 +7,22 @@
 # @param ignore_rules
 #   List of rules to ignore when purging
 #
-# @param rules
+# @param enable_logging
+#   Should dropped packets be logged?
+#   Default: false
+#
+# @param system_rules
 #   List of rules to apply
 #
 class profile::firewall (
   Enum['accept', 'drop'] $forward_policy,
   Array $ignore_rules,
 
+  Boolean $enable_logging      = false,
   Optional[Hash] $system_rules = undef,
 ) {
   Firewall {
-    before => Class['profile::firewall::post'],
+    before  => Class['profile::firewall::post'],
     require => Class['profile::firewall::pre'],
   }
 
