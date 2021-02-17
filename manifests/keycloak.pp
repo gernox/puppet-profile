@@ -21,7 +21,7 @@ class profile::keycloak (
 
   class { '::gernox_keycloak':
     http_port        => $http_port,
-    base_url         => "https://${http_domain}/auth",
+    base_url         => "https://${http_domain}/auth/",
     admin_password   => $admin_password,
     db_name          => $db_name,
     db_user          => $db_user,
